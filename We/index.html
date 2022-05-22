@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pricing Layout</title>
+    <style>
+      #heading{
+        text-align: center;
+        width: 50%;
+        margin: auto;
+       
+      }
+      #heading > h1{
+        font-size: 50px;
+
+      }
+      #heading > p{
+        font-size: 20px;
+        line-height: 30px;
+        color: grey;
+      }
+      #cards-section{
+        width: 60%;
+        margin: auto;
+        margin-top: 40px;
+        display: flex;
+       
+
+      }
+      #cards-section > div{
+        width: 30%;
+        margin: auto;
+        text-align: center;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        border-radius: 15px;
+      }
+      h2 + h1 + p {
+        font-style: italic;
+        margin-top: -20px;
+      }
+      #cards-section > div > p + p {
+        line-height: 30px;
+        padding: 0px 20px 0px 20px;
+        font-size: 22px;
+      }
+      #cards-section > div:first-child > h1{
+        color: green;
+      }
+      #cards-section > div:last-child > h1{
+        color:blue;
+      }
+      #cards-section > div:nth-child(2) > h1{
+        color: orange;
+      }
+      button{
+        border: 1px solid blue;
+        background-color: transparent;
+        color: blue;
+        font-size: 20px;
+        font-weight: bold;
+        border-radius: 10px;
+        padding: 10px 20px 10px 20px;
+        margin-bottom: 30px;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <div id="heading">
+      <h1>Choose a plan that right for your business</h1>
+      <p>
+        We collect reviews from our users so you can get an honest opinion of
+        what an experience with our website are really like!
+      </p>
+    </div>
+
+    <!-- Cards section -->
+    <div id="cards-section">
+      <!-- This section should contain 3 children divs, each div should have h2,h1,p,p,button -->
+      <div>
+        <h2>Starter Plan</h2>
+        <h1>Free</h1>
+        <p>per month</p>
+        <p>We collect reviews from our users so you can get honest opinion of what an experience with our website.</p>
+        <button>Start Now</button>
+      </div>
+      <div>
+        <h2>Starter Plan</h2>
+        <h1>$39.00</h1>
+        <p>per month</p>
+        <p>We collect reviews from our users so you can get honest opinion of what an experience with our website.</p>
+        <button>Start Now</button>
+      </div>
+      <div>
+        <h2>Starter Plan</h2>
+        <h1>$59.00</h1>
+        <p>per month</p>
+        <p>We collect reviews from our users so you can get honest opinion of what an experience with our website.</p>
+        <button>Start Now</button>
+      </div>
+    </div>
+  </body>
+</html>
