@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masai Claculator</title>
+</head>
+<style>
+     h1{
+        text-align: center;
+        font-size: 50px;
+        color: teal;
+    }
+    #Main{
+        width: 30%;
+        height: 500px;
+        border: 2px solid transparent;
+        margin: auto;
+        background-color:white;
+        margin-top: 50px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+    #Main>:first-child{
+        width: 86%;
+        height: 5%;
+        margin: auto;
+        padding-top: 30px;
+        margin-top: 40px;
+        border-radius: 8px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+    #Main > div + div{
+        width: 90%;
+        margin: auto;
+    }
+    #sub{
+        width: 100%;
+        height: 10%;
+        margin: auto;
+        display: flex;
+        margin-top: 10px;
+    }
+    #sub > div{
+        width: 80%;
+        margin: auto;
+        text-align: center;
+        padding:5% 1% 5% 1%;
+        margin-right: 2%;
+        margin-left: 2%;
+        border-radius: 8px;
+        font-size: 20px;
+        font-weight: bold;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+    #sub > :nth-child(4){
+        background-color: black;
+        color: white;
+    }
+    #Equal{
+        background-color: black; 
+        color: white;
+    }
+    #C{
+        background-color: red;
+        color: white;
+    }
+    
+
+</style>
+<body>
+    <h1>Masai Calculator</h1>
+    <div id="Main">
+        <div></div>
+        <div>
+            <div id="sub">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>+</div>
+            </div>
+            <div id="sub">
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>-</div>
+            </div>
+            <div id="sub">
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+                <div>x</div>
+            </div>
+            <div id="sub">
+                <div id="C">C</div>
+                <div>0</div>
+                <div id="Equal">=</div>
+                <div>/</div>
+            </div>
+        </div>
+    </div>
+    </div>    
+    
+   
+    
+</body>
+</html>

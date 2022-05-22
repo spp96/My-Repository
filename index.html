@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Cards</title>
+</head>
+ <style>
+        .cards {
+            width: 70%;
+            margin: 25px auto;
+            display: flex;
+            margin-top: auto;
+
+        }
+        .cards > div {
+            width: 30%;
+            margin: auto;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+        .cards > div > img:first-child {
+            width: 100%;
+        }
+        button{
+            border: 1px solid white;
+            border-left: 3px solid red;
+            background-color: white;
+            font-size: 15px;
+            padding-left: 10px;
+            color: grey;
+            margin-top: auto;
+            margin-bottom: 20px;
+            margin-left: 20px
+        }
+        .cards > div > h2{
+            margin-left: 20px;
+        }
+
+    </style>
+<body>
+    <div class="cards">
+        <div>
+            <img src="https://c.files.bbci.co.uk/84E3/production/_121591043_gchqcheltenham.jpg" alt="">
+            <h2>UK and Us join forces to strike back in cyber-space</h2>
+            <button>TECHNOLOGY</button>
+        </div>
+        <div>
+            <img src="https://ichef.bbci.co.uk/news/1024/branded_news/A5B3/production/_121591424_gaga.jpg" alt="">
+            <h2>Lady Gaga took personal trauma into Gucci role</h2>
+            <button>ENTERTAINMENT & ARTS</button>
+        </div>
+        <div>
+            <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/7986/production/_120301113_gettyimages-562534529.jpg" alt="">
+            <h2>The mothers using Instagram to offer advice to new mums and dads</h2>
+            <button>BUSINESS</button>
+        </div>
+    </div>
+    <div class="cards">
+        <div>
+            <img src="https://ichef.bbci.co.uk/news/1024/branded_news/10A7A/production/_121581286_shukmanhi071617079.jpg" alt="">
+            <h2>'I've seen irreversible change but hope too for planet'</h2>
+            <button>SCIENCE & ENVIRONMENT</button>
+        </div>
+        <div>
+            <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/84A7/production/_121595933_976_afp_gettyimages-1236617930.jpg" alt="">
+            <h2>Full force of covid hitting Germany,warns Merkel</h2>
+            <button>EUROPE</button>
+        </div>
+        <div>
+            <img src="https://c.files.bbci.co.uk/24AD/production/_121598390_hi071983362.jpg" alt="">
+            <h2>Baby elephant dies after losing half its trunk</h2>
+            <button>ASIA</button>
+        </div>
+    </div>
+    
+</body>
+
+</html>
