@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini-Calculator</title>
+    </style>
+</head>
+<body>
+    <input type="number" id="n1" placeholder="enter 1st number" />
+    <input type="number" id="n2"  placeholder="enter 2nd number" />
+    <br>
+    <br>
+    <button onclick="add()">Add</button>
+    <button onclick="sub()">Subtract</button>
+    <button onclick="multy()">Multiply</button>
+    <button onclick="divs()">Divide</button>
+    <p id="res"> Display result here</p>
+</body>
+</html>
+
+<script>
+    function add () {
+     let n1 = +document.getElementById("n1").value;
+     let n2 = +document.getElementById("n2").value;
+     let ans = n1+n2;
+     document.getElementById("res").innerText = "Answer is := " +ans;
+    }
+    function sub () {
+     let n1 = +document.getElementById("n1").value;
+     let n2 = +document.getElementById("n2").value;
+     let ans = n1-n2;
+     document.getElementById("res").innerText = "Answer is := " +ans;
+    }
+    function multy () {
+     let n1 = +document.getElementById("n1").value;
+     let n2 = +document.getElementById("n2").value;
+     let ans = n1*n2;
+     document.getElementById("res").innerText = "Answer is := " +ans;
+    }
+    function divs () {
+     let n1 = +document.getElementById("n1").value;
+     let n2 = +document.getElementById("n2").value;
+     let ans = n1/n2;
+     document.getElementById("res").innerText = "Answer is := " +ans;
+    }
+</script>

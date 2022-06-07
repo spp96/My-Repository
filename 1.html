@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MQ Layout-1</title>
+    <style>
+        #nav{
+            background-color: yellow;
+            width: 100%;
+            height: 60px;
+            font-size: 30px;
+            padding: 5px 5px;
+        }
+        #box{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: 300px;
+            gap: 20px;
+            margin-top: 20px;
+            font-size: 30px;
+        }
+        #box > div{
+            padding: 10px 10px;
+        }
+        #box > div:nth-child(1){
+            background-color:#FF0000 ;
+        }
+        #box > div:nth-child(2){
+            background-color:#00ff2a ;
+        }
+        #box > div:nth-child(3){
+            background-color:#5763ee ;
+        }
+        #box > div:nth-child(4){
+            background-color:#989898 ;
+        }
+        @media all and (min-width:480px) and (max-width:720px){
+        #box{
+        width: 100%;
+         grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(2,300px);
+        }
+        #box > div:nth-child(2){
+            background-color:#00ff2a ;
+            order: 9;
+        }
+        #box > div:nth-child(3){
+            background-color:#5763ee ;
+            order: 8;
+        }
+        #box > div:nth-child(4){
+            background-color:#989898 ;
+            order: 10;
+        }
+        #nav{
+            width: 100%;
+        }
+        }
+        @media all and (min-width:320px) and (max-width:479px){
+            #box{
+                width: 100%;
+                grid-template-columns: repeat(1,1fr);
+                grid-template-rows: repeat(4,150px);
+        }
+        
+        #box > div:nth-child(2){
+            background-color:#00ff2a ;
+            order: 9;
+        }
+        #box > div:nth-child(3){
+            background-color:#5763ee ;
+            order: 10;
+        }
+        #box > div:nth-child(4){
+            background-color:#989898 ;
+            order: 8;
+        }
+        #nav{
+            width: 100%;
+        }
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+<div id="nav">Navigation</div>
+<divid id="box">
+    <div>Box 1</div>
+    <div>Box 2</div>
+    <div>Box 3</div>
+    <div>Box 4</div>
+</div>
+</html>

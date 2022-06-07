@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Values</title>
+</head>
+<body>
+	<input type="text" name="name" id="name">
+	<select id="gender">
+		<option value="">--</option>
+		<option value="male">M</option>
+		<option value="female">F</option>
+	</select>
+	<input type="text" name="email" id="email">
+	<input type="text" name="mobile" id="mobile">
+	<hr>
+	<button onclick="showName()">NAME</button>
+	<button onclick="showGender()">GENDER</button>
+	<button onclick="showEmail()">EMAIL</button>
+	<button onclick="showMobile()">MOBILE</button>
+	<script type="text/javascript">
+		function showName() {
+			// Show the alert of the filled name
+            let name = document.getElementById("name").value;
+            alert(name);
+		}
+
+		function showGender() {
+			// Show the alert of the selected Gender
+            let gender = document.getElementById("name").value;
+            alert(gender);
+		}
+
+		function showEmail() {
+			// Show the alert of the filled email
+            let email = document.getElementById("name").value;
+            alert(email);
+		}
+
+		function showMobile() {
+			// Show the alert of the filled mobile
+            let mob = document.getElementById("name").value;
+            alert(mob);
+		}
+	</script>
+</body>
+</html>

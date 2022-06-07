@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main{
+            width: 98%;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: repeat(3,auto);
+            gap: 15px;
+            margin: auto;
+            text-align: center;
+        }
+        #main >div{
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+            border-radius: 10px;
+        }
+        img:first-child{
+            width: 100%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            
+        }
+        img:last-child{
+            width: 140px;
+            text-align: center;
+            margin-top: -8px;
+        }
+        img+p{
+           font-size: 24px;
+           font-weight: bold;
+           margin-top: 1px;
+        }
+        img+p+p{
+            font-size: 16px;
+            color: grey;
+            margin-top: -18px;
+        }
+        @media all and (min-width:480px) and (max-width:720px){
+        #main{
+            width: 95%;
+            grid-template-columns: repeat(3,1fr);
+            grid-template-rows: repeat(4,auto);
+            gap: 20px;
+            margin: auto;
+            text-align: center;
+        }
+        img:first-child{
+            width: 100%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            
+        }
+        img:last-child{
+            width: 140px;
+            text-align: center;
+            margin-top: -8px;
+        }
+        img+p{
+           font-size: 20px;
+           font-weight: bold;
+           margin-top: 1px;
+        }
+        img+p+p{
+            font-size: 16px;
+            color: grey;
+            margin-top: -18px;
+        }
+
+        }
+        @media all and (min-width:320px) and (max-width:479px){
+        #main{
+            width: 95%;
+            grid-template-columns: repeat(2,1fr);
+            grid-template-rows: repeat(6,auto);
+            gap: 20px;
+            margin: auto;
+            text-align: center;
+        }
+        img:first-child{
+            width: 100%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            
+        }
+        img:last-child{
+            width: 140px;
+            text-align: center;
+            margin-top: -8px;
+        }
+        img+p{
+           font-size: 16px;
+           font-weight: bold;
+           margin-top: 1px;
+        }
+        img+p+p{
+            font-size: 14px;
+            color: grey;
+            margin-top: -8px;
+        }
+
+        }
+    </style>
+</head>
+<body>
+    <div id="main" >
+    </div>
+</body>
+</html>
+
+<script>
+     let investors =[
+        {name:"Vijay Shekhar Sharma",
+        role:"Founder & CEO",
+        image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/Vijay_Shekhar_Sharma_Paytm_96f52579b8.jpg",
+        companyLogo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/paytm_rect_06df45a24f.svg"},
+        {name:"Kunal Shah",
+        role:"Founder",
+        image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/Rectangle_427_637d69bb57.png",
+        companyLogo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/cred_0a47d7b4f8.png"},
+        {name:"Amrish Rau",
+        role:"CEO",
+        image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/amrish_rau_pine_labs_144e5e587c.jpg",
+        companyLogo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/pine_labs_0aa2407434.png"},
+        {name:"Sampad Swain",
+        role:"Co-Founder & CEO",
+        image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/Sampad_swain_Instamojo_f12bf6341e.jpg",
+        companyLogo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/instamojo_8763e704f7.png"},
+        {name:"Ankush Sachdeva",
+        role:"Co-Founder & CEO",
+        image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/Ankush_Sachdeva_Sharechat_4e44dbbe6b.jpg",
+        companyLogo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/sharechat_rect_73d95cd4e1.svg"},
+        {name:"Bhanu Pratap Singh",
+        role:"Founder & CTO",
+        image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/bhanu_pratap_singh_sharechat_11fdd7b47a.jpg",
+        companyLogo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/sharechat_rect_73d95cd4e1.svg"},
+        {name:"Farid Ahsan",
+        role:"Founder & COO",
+        image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/farid_ahsan_sharechat_1251f28141.png",
+        companyLogo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/sharechat_rect_73d95cd4e1.svg"},
+        {name:"Amit Kumar Agarwal",
+        role:"Founder & CEO",
+        image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/Amit_Kumar_Agarwal_Nobroker_a8a279ad91.jpg",
+        companyLogo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/nobroker_rect_28c9778c30.svg"},
+        {name:"Akhil Gupta",
+        role:"Founder & CTO",
+        image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/Akhil_Gupta_Nobroker_539cd97f6c.jpg",
+        companyLogo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/nobroker_rect_28c9778c30.svg"},
+        {name:"Saurabh Garg",
+        role:"Co-Founder & CBO",
+        image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/saurbh_garg_nobroker_c0c71cc431.jpeg",
+        companyLogo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/nobroker_rect_28c9778c30.svg"},
+        {name:"Vipin Pathak",
+        role:"Co-Founder & CEO",
+        image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/Vipin_Pathak_Care24_acd02cd173.jpg",
+        companyLogo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/care24_1164f7a2cd.png"},
+        {name:"Ramakant Sharma",
+        role:"Founder",
+        image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/Ramakant_Sharma_livespace_0308e3627d.jpg",
+        companyLogo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/livspace_f9318b2e8d.png"},
+        ]
+
+        investors.map(function (el){
+            console.log(el);
+            let sub = document.createElement("div");
+
+            let pic = document.createElement("img");
+            pic.setAttribute("src",el.image);
+
+            let name = document.createElement("p");
+            name.innerText = el.name;
+
+            let role = document.createElement("p");
+            role.innerText = el.role;
+
+            let logo = document.createElement("img");
+            logo.setAttribute("src",el.companyLogo);
+
+            sub.append(pic,name,role,logo);
+            document.querySelector("#main").append(sub);
+        })
+</script>
