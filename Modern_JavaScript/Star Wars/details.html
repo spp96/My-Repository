@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Person_Details</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", "Roboto",
+          "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+          "Helvetica Neue", sans-serif;
+      }
+      body {
+        background-color: black;
+        color: yellow;
+        cursor: pointer;
+      }
+      #main{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 45%;
+        margin: auto;
+        padding: 20px 0px;
+      }
+      #main div {
+        width: 45%;
+        border: 3px solid yellow;
+        text-align: center;
+        border-radius: 15px;
+        margin: auto;
+        padding: 20px 0px;
+        margin-top: 10px;
+        line-height: 50px;
+      }
+      #btn button {
+        border: solid 3px yellow;
+        background-color: black;
+        border-radius: 15px;
+        padding: 20px 40px;
+        display: block;
+        margin: auto;
+        margin-top: 10px;
+        font-size: 20px;
+      }
+      #heading {
+        text-align: center;
+        margin-top: 160px;
+      }
+      a {
+        color: yellow;
+        text-decoration: none;
+      }
+      p{
+        font-size: 20px;
+        font-weight: bold;
+      }
+      #main div:hover{
+        color: white;
+        border-color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="heading"></h1>
+    <div id="main">
+    </div>
+    <div id="btn">
+
+    </div>
+  </body>
+</html>
+<script>
+  let getdetailsArr = JSON.parse(localStorage.getItem("Person_Data"));
+
+  getdetailsArr.forEach((el) => {
+
+    let container = document.getElementById("main");
+    let Btn = document.getElementById("btn");
+    let name = document.querySelector("#heading");
+    name.innerText = el.name;
+    let Person_Info = document.createElement("div");
+    Person_Info.innerHTML = `<h2>${"Personal Info"}</h2>
+                <h4>${"Birth Year : "} ${el.birth_year}</h4>
+                <h4>${"Gender : "}${el.gender}</h4>
+                <h4>${"Height : "}${el.height}</h4>`;
+    let anatomy = document.createElement("div");
+    anatomy.innerHTML = `<h2>${"Anatomy"}</h2>
+                <h4>${"Eye Color : "} ${el.eye_color}</h4>
+                <h4>${"Mass : "}${el.mass}</h4>
+                <h4>${"Hair Color : "}${el.hair_color}</h4>`;
+    let btn = document.createElement("button");
+    btn.innerHTML = `<a href="index.html">Go Back</a>`;
+    container.append(Person_Info, anatomy);
+    Btn.append(btn)
+  });
+</script>

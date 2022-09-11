@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins",sans-serif;
+}
+#navbar {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px 5%;
+  background-color: rosybrown;
+  border-radius: 10px;
+}
+#navbar h3:nth-child(1) {
+  margin-right: 70%;
+}
+#navbar a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+}
+#navbar a:hover {
+  color: burlywood;
+}
+#food_box {
+  width: 80%;
+  margin: auto;
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  gap: 20px;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  line-height: 40px;
+  color: goldenrod;
+}
+#food_box div {
+  padding-bottom: 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 20px;
+}
+#food_box img {
+  width: 100%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+#homepage {
+    background-color: #363739;
+}
+.addtocart{
+    padding: 6px 12px ;
+    border-radius: 10px;
+    border: none;
+    background-color: antiquewhite;
+    color: darkorange;
+    font-weight: bold;
+    cursor: pointer;
+}
+.addtocart:hover{
+    color: gold;
+}
+#food_box h3:hover{
+    color: darkred;
+    cursor: pointer;
+}
+ form{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 60px 30px;
+    margin-top: 40px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 15px;
+  }
+  form h2{
+    text-align: center;
+    margin-bottom: 10px;
+    color: darkslategray;
+  }
+  input {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-weight: bold;
+  }
+  #sub_checkout {
+    padding: 10px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  #sub_login {
+    padding: 10px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  #sub_signup {
+    padding: 10px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  form p{
+    margin-top: 20px;
+    text-align: center;
+  }
+  form p a{
+    text-decoration: none;
+    color: black;
+  }
+  form p a:hover{
+    color: rgb(51, 153, 153);
+
+  }

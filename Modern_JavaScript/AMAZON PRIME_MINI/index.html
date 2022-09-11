@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amazone-Prime</title>
+    <style>
+      * {
+        text-decoration: none;
+        margin: 0;
+        padding: 0;
+        font-family: "Amazon Ember", "Amazon Arabic Ember", Arial, sans-serif !important;
+      }
+
+      #navbar {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 80px;
+        align-content: center;
+        background-color: #19232E;
+      }
+      #navbar #nav-left {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 20px;
+      }
+      #navbar #nav-left a {
+        margin: 0 6px;
+        color: white;
+      }
+      #logo {
+        width: 100px;
+        margin-top: 10px;
+      }
+
+      #navbar #nav-right input {
+        height: 30px;
+        width: 350px;
+        padding-left: 10px;
+      }
+
+      #navbar #nav-right #movies_list {
+        width: 350px;
+        height: 400px;
+        position: absolute;
+        overflow-y: scroll;
+        padding: 6px;
+      }
+
+      #navbar #nav-right #movies_list div {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 10px;
+        background-color: #19232E;
+        color: white;
+      }
+
+      #navbar #nav-right #movies_list div:hover {
+        background-color: rgb(219, 193, 193);
+        color: brown;
+        cursor: pointer;
+      }
+
+      #movies_list::-webkit-scrollbar {
+        width: 0.2em;
+      }
+
+      #movies_list::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      }
+
+      #movies_list::-webkit-scrollbar-thumb {
+        background-color: darkgrey;
+        outline: 1px solid slategrey;
+      }
+
+      #navbar #nav-right #movies_list img {
+        width: 80px;
+        height: 80px;
+      }
+
+      #carousal {
+        margin: auto;
+        margin-top: 30px;
+        width: 90%;
+        height: 50vh;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+
+      #recent_watch {
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        width: 87%;
+        height: 390px;
+        background-color: #19232E;
+        padding: 0px 20px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+
+      #recent_watch h3 {
+        color: white;
+        font-weight: bold;
+        padding: 20px 10px;
+      }
+
+      #carousal img {
+        width: 100%;
+        height: 100%;
+      }
+      #slider {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        overflow: scroll;
+      }
+      #slider::-webkit-scrollbar {
+        width: 0.1em;
+      }
+      #slider::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      }
+      #slider::-webkit-scrollbar-thumb {
+        background-color: darkgrey;
+        outline: 1px solid slategrey;
+      }
+      #slider img {
+        width: 200px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="navbar">
+      <div id="nav-left">
+        <img
+          id="logo"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7W_1XE2jx0ITFS60qEQiHM2DZ5Ym76Wl47_RAOB0ONlIF4337Bwm3NDZieq_NNCz4fQ&usqp=CAU"
+          alt=""
+        />
+        <a href="" class=".active">Home</a>
+        <a href=""> Store</a>
+        <a href="">Channels</a>
+        <a href="">category</a>
+        <a href="">My Stuff</a>
+      </div>
+      <div id="nav-right">
+        <input
+          type="text"
+          placeholder="Search"
+          oninput="debounce(main,1000)"
+          id="query"
+        />
+        <div id="movies_list"></div>
+      </div>
+    </div>
+
+    <div id="carousal">
+      <img
+        src="https://fangirlish.com/wp-content/uploads/2022/02/Marry-Me-Poster.jpg"
+        alt=""
+      />
+    </div>
+
+    <div id="recent_watch">
+      <h3>Continue Watching</h3>
+      <div id="slider"></div>
+    </div>
+  </body>
+</html>
+<script>
+    let select_movie = JSON.parse(localStorage.getItem("select-movie")) || [];
+  let id;
+  let debounce = (func, delay) => {
+    if (id) {
+      clearTimeout(id);
+    }
+    id = setTimeout(() => {
+      func();
+    }, delay);
+  };
+
+  let main = () => {
+    let user_query = document.querySelector("#query").value;
+    getdata(user_query);
+  };
+
+  let getdata = async (query) => {
+    let url = `http://www.omdbapi.com/?apikey=aa299316&s=${query}`;
+    let res = await fetch(url);
+    let data = await res.json();
+    console.log(data.Search);
+    append(data.Search);
+  };
+
+  let movies_list = document.querySelector("#movies_list");
+
+  let append = (data) => {
+    movies_list.innerHTML = null;
+
+    data.forEach((el) => {
+      let image = document.createElement("img");
+      image.src = el.Poster;
+
+      let name = document.createElement("h3");
+      name.innerText = el.Title;
+
+      let details = document.createElement("div");
+      details.addEventListener("click",function(){
+        myfun(el);
+      });
+      details.append(image, name);
+      movies_list.append(details);
+    });
+  };
+
+  let slide = async () => {
+    let url = `http://www.omdbapi.com/?apikey=aa299316&s=avengers`;
+    let res = await fetch(url);
+    let data = await res.json();
+    sliding(data.Search);
+  };
+  let slider = document.querySelector("#slider");
+  let sliding = (data) => {
+    slider.innerHTML = null;
+    data.forEach((el) => {
+      let image = document.createElement("img");
+      image.src = el.Poster;
+      let div = document.createElement("div");
+      div.append(image);
+      slider.append(div);
+    });
+  };
+  slide();
+
+  let myfun = (el) => {
+    select_movie.push(el);
+    localStorage.setItem("select-movie", JSON.stringify(select_movie));
+    window.location.href = "movie.html";
+  };
+</script>

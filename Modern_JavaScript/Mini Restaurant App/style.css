@@ -1,0 +1,198 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins",sans-serif;
+}
+#navbar {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px 5%;
+  background-color: rosybrown;
+  border-radius: 10px;
+}
+#navbar h3:nth-child(1) {
+  margin-right: 70%;
+}
+#navbar a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+}
+#navbar a:hover {
+  color: burlywood;
+}
+#food_box {
+  width: 40%;
+  margin: auto;
+  margin-top: 10px;
+  padding: 10px;
+  line-height: 40px;
+  color: goldenrod;
+}
+#food_box .items {
+  margin-top: 10px;
+  display: flex;
+  margin: auto;
+  text-align: justify;
+  justify-content: space-around;
+  gap: 20px;
+  padding: 20px;
+  padding-bottom: 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 20px;
+}
+#food_box img {
+  width: 100%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+#homepage {
+    background-color: #363739;
+}
+.remove{
+    padding: 6px 12px ;
+    border-radius: 10px;
+    border: none;
+    background-color: antiquewhite;
+    color: darkorange;
+    font-weight: bold;
+    cursor: pointer;
+}
+.addtocart:hover{
+    color: gold;
+}
+#food_box h3:hover{
+    color: darkred;
+    cursor: pointer;
+}
+ form{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 60px 30px;
+    margin-top: 40px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 15px;
+  }
+  form h2{
+    text-align: center;
+    margin-bottom: 10px;
+    color: darkslategray;
+  }
+  input {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-weight: bold;
+  }
+  #sub_checkout {
+    padding: 10px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  #sub_login {
+    padding: 10px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  #sub_signup {
+    padding: 10px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  #menu_input{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 60px 30px;
+    margin-top: 40px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 15px;
+  }
+  #submit_menu{
+    padding: 10px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  #sort_filter{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    margin-top: 20px;
+  }
+  #filter_rating{
+    height: 40px;
+    margin-top: 26px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  #sorting button{
+    height: 40px;
+    padding: 12px 8px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: darkslategrey;
+    color: white;
+    font-weight: bold;
+    margin-left: 10px;
+  }
+
+  #sorting h3{
+    margin-left: 3%;
+    margin-bottom: 5px;
+}
+#btns{
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+}
+#btns button{
+  padding: 4px 8px;
+  margin: 0px 8px;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  background-color: aliceblue;
+  font-size: 20px;
+  font-weight: bold;
+}
+#btns button:hover{
+  background-color: darkgoldenrod;
+  color: white;
+}
+#menuhomepage{
+  background-image: url("https://www.joomla-monster.com/images/blog/best-restaurant-templates/b-10.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}

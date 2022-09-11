@@ -1,0 +1,89 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+#main {
+    /* color: aliceblue;
+    background-color:burlywood; */
+    border: 1px solid;
+    border-radius: 10px;
+    margin: 5px 10px;
+    padding: 30px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  #main > button {
+    background-color: transparent;
+    /* color: aliceblue; */
+    margin-left: 50px;
+    border: 0px;
+    font-size: 20px;
+  }
+  #main > button:hover {
+    color: green;
+    cursor: pointer;
+  }
+  a{
+    text-decoration: none;
+    color: black;
+  }
+  /* #slideshow{
+    width: 100%;
+    height: 30%;
+    margin-top: 2%;
+  } */
+  #slideshow>img{
+    width: 80%;
+    height: 600px;
+    margin: auto;
+    display: flex;
+    margin-top: 20px;
+    align-content: center;
+  }
+#sort-buttons >button{
+  padding: 10px;
+ background-color: aliceblue;
+ margin-top: 10px;
+ cursor: pointer;
+ font-size: 20px;
+ color: blue;
+ font-weight: bold;
+}
+#movies{
+  width: 80%;
+  height: 1600px;
+  border: 1px solid;
+  display: grid;
+  margin: auto;
+  margin-top: 25px;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: repeat(3,500px);
+  row-gap: 30px;
+
+}
+#movies>div{
+  width: 100%;
+  height: 500px;
+  display: grid;
+  margin: auto;
+  margin-top: 25px;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+ 
+}
+image{
+  width: 100%;
+  height: 150px;
+}
+.rating{
+  font-size: 20px;
+  margin-top: -40px;
+}
+.date{
+  font-size: 20px;
+  margin-top: -40px;
+}

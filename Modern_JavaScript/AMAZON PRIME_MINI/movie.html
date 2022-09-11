@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie-Details</title>
+    <style>
+      * {
+        text-decoration: none;
+        margin: 0;
+        padding: 0;
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+      }
+
+      #navbar {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 80px;
+        align-content: center;
+        background-color: #19232e;
+      }
+      #navbar #nav-left {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 20px;
+      }
+      #navbar #nav-left a {
+        margin: 0 6px;
+        color: white;
+      }
+      #logo {
+        width: 100px;
+        margin-top: 10px;
+      }
+
+      #navbar #nav-right input {
+        height: 30px;
+        width: 350px;
+        padding-left: 10px;
+      }
+
+      #navbar #nav-right #movies_list {
+        width: 350px;
+        height: 400px;
+        position: absolute;
+        overflow-y: scroll;
+        padding: 6px;
+      }
+
+      #navbar #nav-right #movies_list div {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 10px;
+        background-color: #19232e;
+        color: white;
+      }
+
+      #navbar #nav-right #movies_list div:hover {
+        background-color: rgb(219, 193, 193);
+        color: brown;
+        cursor: pointer;
+      }
+
+      #movies_list::-webkit-scrollbar {
+        width: 0.2em;
+      }
+
+      #movies_list::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      }
+
+      #movies_list::-webkit-scrollbar-thumb {
+        background-color: darkgrey;
+        outline: 1px solid slategrey;
+      }
+
+      #navbar #nav-right #movies_list img {
+        width: 80px;
+        height: 80px;
+      }
+      #container {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        width: 95%;
+        margin: auto;
+        margin-top: 20px;
+      }
+      #container div:last-child {
+        display: flex;
+      }
+      #container div img {
+        width: 100%;
+        height: 400px;
+      }
+
+      .desc {
+        width: 30%;
+        background-color: black;
+        color: white;
+        display: grid;
+        text-align: center;
+        align-items: center;
+        line-height: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar">
+      <div id="nav-left">
+        <img
+          id="logo"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7W_1XE2jx0ITFS60qEQiHM2DZ5Ym76Wl47_RAOB0ONlIF4337Bwm3NDZieq_NNCz4fQ&usqp=CAU"
+          alt=""
+        />
+        <a href="index.html" class=".active">Home</a>
+        <a href=""> Store</a>
+        <a href="">Channels</a>
+        <a href="">category</a>
+        <a href="">My Stuff</a>
+      </div>
+      <div id="nav-right">
+        <input
+          type="text"
+          placeholder="Search by movie"
+          oninput="debounce(main,1000)"
+          id="query"
+        />
+        <div id="movies_list"></div>
+      </div>
+    </div>
+    <div id="container"></div>
+  </body>
+</html>
+<script>
+  let select_movie = JSON.parse(localStorage.getItem("select-movie"));
+  console.log(select_movie);
+
+  select_movie.forEach((el) => {
+    let container = document.getElementById("container");
+    container.innerHTML = null;
+    let image = document.createElement("img");
+    image.src = el.Poster;
+
+    let name = document.createElement("h2");
+    name.innerText = el.Title;
+    let type = document.createElement("h2");
+    type.innerText = el.Type;
+
+    let year = document.createElement("p");
+    year.innerText = el.Year;
+    let imdb = document.createElement("p");
+    imdb.innerText = el.imdbID;
+
+    let desc = document.createElement("div");
+    desc.setAttribute("class", "desc");
+    desc.append(name, type, year, imdb);
+    let div = document.createElement("div");
+    div.append(desc, image);
+    container.append(div);
+  });
+</script>

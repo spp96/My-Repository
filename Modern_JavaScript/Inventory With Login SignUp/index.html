@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <style>
+    *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+
+      #navbar {
+        display: flex;
+        justify-content: flex-end;
+        gap: 20px;
+        padding: 20px 80px;
+        background-color: bisque;
+        position: relative;
+      }
+      #hm {
+        position: absolute;
+        left: 5%;
+      }
+      #navbar a {
+        text-decoration: none;
+        color: grey;
+        cursor: pointer;
+      }
+  </style>
+</head>
+<body>
+  <div id="navbar">
+    <h2 id="hm"><a href="index.html">Home</a></h2>
+        <h3><a onclick="store()">Store</a></h3>
+        <h3><a href="signup.html">Signup</a></h3>
+        <h3><a href="login.html">Login</a></h3>
+  </div>
+</body>
+</html>
+<script>
+  let store = () =>{
+    alert("Please login to continue")
+  }
+</script>

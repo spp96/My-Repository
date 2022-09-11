@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AddProduct</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      #navbar {
+        display: flex;
+        justify-content: flex-end;
+        gap: 20px;
+        padding: 20px 80px;
+        background-color: bisque;
+        position: relative;
+      }
+      #hm {
+        position: absolute;
+        left: 5%;
+      }
+      #navbar a {
+        text-decoration: none;
+        color: grey;
+      }
+      form {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        padding: 60px 30px;
+        margin-top: 40px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border-radius: 15px;
+      }
+      input {
+        margin-bottom: 10px;
+        padding: 10px;
+        font-weight: bold;
+      }
+      select {
+        margin-bottom: 10px;
+        padding: 10px;
+        font-weight: bold;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      button {
+        padding: 10px;
+        background-color: black;
+        color: white;
+        font-weight: bold;
+        border-radius: 10px;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      label {
+        font-size: 20px;
+      }
+      #container {
+        width: 50%;
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding: 15px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px,
+          rgb(51, 51, 51) 0px 0px 0px 3px;
+      }
+
+      #container div {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px;
+
+        box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+          rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+          rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+      }
+
+      #container div img {
+        width: 250px;
+        height: 250px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        border-top-left-radius: 25px;
+      }
+
+      #container div .desc {
+        display: grid;
+        align-items: center;
+        font-size: 26px;
+      }
+      #heading {
+        width: fit-content;
+        margin: auto;
+        text-align: center;
+        margin-top: 20px;
+        padding: 20px;
+        border-radius: 8px;
+        background-color: brown;
+        color: white;
+        font-weight: bold;
+      }
+      #sub{
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body onload="append()">
+    <div id="navbar">
+      <h2 id="hm"><a href="index.html">Home</a></h2>
+      <h3><a href="store.html">Store</a></h3>
+      <h3><a href="signup.html">Signup</a></h3>
+      <h3><a href="login.html">Login</a></h3>
+      <h3><a href="user.html">Users</a></h3>
+    </div>
+    <form action="">
+      <label for="name">Product Name</label>
+      <input type="text" name="" id="name" />
+      <label for="categories">Categories</label>
+      <select name="category" id="category">
+        <option value="category">Category</option>
+        <option value="T-Shirts">T-Shirts</option>
+        <option value="Shoes">Shoes</option>
+        <option value="Trousers">Trousers</option>
+        <option value="Jeans">Jeans</option>
+        <option value="Shirts">Shirts</option>
+        <option value="Sweetshirt">Sweetshirt</option>
+        <option value="Sweater">Sweater</option>
+        <option value="Goggle">Goggle</option>
+      </select>
+      <label for="imgurl">Image Url</label>
+      <input type="url" name="" id="image" />
+      <label for="price">Price</label>
+      <input type="number" name="" id="price" />
+
+      <button type="submit" id="add">ADD PRODUCTs</button>
+    </form>
+    <h2 id="heading">Product List</h2>
+
+    <div id="container"></div>
+  </body>
+</html>
+
+<script>
+  document.querySelector("form").addEventListener("submit", data);
+  let arr = JSON.parse(localStorage.getItem("Products")) || [];
+  function data() {
+    event.preventDefault();
+    let productname = document.querySelector("#name").value;
+    let category = document.querySelector("#category").value;
+    let image = document.querySelector("#image").value;
+    let price = document.querySelector("#price").value;
+
+    let productdata = new constructor(productname, category, image, price);
+    arr.push(productdata);
+    localStorage.setItem("Products", JSON.stringify(arr));
+
+    if (productname && category && image && price) {
+      alert(`Product Added`);
+      document.querySelector("#name").value = null;
+      document.querySelector("#category").value = null;
+      document.querySelector("#image").value = null;
+      document.querySelector("#price").value = null;
+      append();
+    }
+  }
+
+  let container = document.querySelector("#container");
+  let append = () => {
+    let data = JSON.parse(localStorage.getItem("Products"));
+    container.innerHTML = null;
+
+    data.forEach((el, id) => {
+      let image = document.createElement("img");
+      image.src = el.image;
+
+      let name = document.createElement("h3");
+      name.innerText = `Brand: ${el.productname}`
+
+      let cat = document.createElement("h3");
+      cat.innerText = el.category;
+
+      let price = document.createElement("h4");
+      price.innerText = `Price: Rs:-${el.price}`;
+
+      let desc = document.createElement("div");
+      desc.setAttribute("class", "desc");
+      desc.append(name, cat, price);
+      let btn = document.createElement("button");
+      btn.innerText = `REMOVE`;
+      btn.setAttribute("class", "btn");
+      btn.addEventListener("click", () => {
+        image.parentNode.remove();
+        data.splice(id, 1);
+        localStorage.setItem("Products", JSON.stringify(data));
+        append();
+        console.log("clicked");
+      });
+      let item = document.createElement("div");
+      item.setAttribute("id","sub")
+
+      item.append(image, desc, btn);
+
+      container.append(item);
+    });
+  };
+
+  function constructor(pr, c, iu, p) {
+    this.productname = pr;
+    this.category = c;
+    this.image = iu;
+    this.price = p;
+  }
+</script>

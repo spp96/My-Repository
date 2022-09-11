@@ -1,0 +1,135 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      #navbar {
+        display: flex;
+        justify-content: flex-end;
+        gap: 20px;
+        padding: 20px 80px;
+        background-color: bisque;
+        position: relative;
+      }
+      #hm {
+        position: absolute;
+        left: 5%;
+      }
+      #navbar a {
+        text-decoration: none;
+        color: grey;
+      }
+      #signin > form {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        padding: 60px 30px;
+        margin-top: 40px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border-radius: 15px;
+      }
+      input {
+        margin-bottom: 10px;
+        padding: 10px;
+        font-weight: bold;
+      }
+      #submit {
+        padding: 10px;
+        background-color: black;
+        color: white;
+        font-weight: bold;
+        border-radius: 10px;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      #role {
+        margin-bottom: 10px;
+        padding: 10px;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar">
+      <h2 id="hm"><a href="index.html">Home</a></h2>
+      <h3><a href="store.html">Store</a></h3>
+      <h3><a href="signup.html">Signup</a></h3>
+      <h3><a href="login.html">Login</a></h3>
+    </div>
+    <div id="signin">
+      <form action="">
+        <input
+          type="text"
+          name="Username"
+          id="username"
+          placeholder="Enter Username"
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Enter Password"
+          required
+        />
+        <select name="" id="role">
+          <option value="Select">SelectRole</option>
+          <option value="Admin">Admin</option>
+          <option value="Users">Users</option>
+        </select>
+        <input onclick="signin()" type="submit" name="submit" id="submit" />
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+
+  let signin = () => {
+    event.preventDefault();
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+    let role = document.getElementById("role").value;
+    let udata = JSON.parse(localStorage.getItem("SignupData"));
+
+    udata.forEach(el => {
+      if (username === el.username && password === el.password && role === "Admin"){
+        alert(`${username},Welcome as ${role}`);
+        window.location.href = "addproduct.html"
+      } else if  (username === el.username && password === el.password && role === "Users"){
+        setTimeout(()=>{
+          window.location.href = "store.html"
+          let date = new Date();
+            let SignupData = JSON.parse(localStorage.getItem("login")) || [];
+          let id = new data(username,password, role,date);
+          SignupData.push(id);
+          localStorage.setItem("login",JSON.stringify(SignupData))
+          alert(`${username},Welcome as ${role}`);
+
+        },2000)
+
+      } else{
+        alert("wrong details")
+      }
+      
+    });
+  };
+  function data(n,p,r,d) {
+    this.username = n
+    this.password = p;
+    this.role = r;
+    this.date = d
+  }
+</script>

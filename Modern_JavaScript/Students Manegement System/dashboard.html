@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashborad</title>
+    <style>
+      table {
+        margin: auto;
+        margin-top: 10px;
+        width: 70%;
+      }
+      th {
+        background-color: gray;
+        color: white;
+        padding: 10px;
+      }
+      tbody {
+        padding: 10px;
+        text-align: center;
+        color: black;
+      }
+      button {
+        border: none;
+        padding: 10px;
+        font-weight: bold;
+        background-color: transparent;
+        color: white;
+      }
+      thead > th:last-child {
+        background-color: red;
+      }
+      tbody > tr > td:last-child {
+        background-color: red;
+      }
+      button:hover {
+        cursor: pointer;
+      }
+      #navbar {
+        display: flex;
+        align-items: flex-start;
+        background-color: gray;
+        color: aliceblue;
+        padding: 10px;
+        align-items: center;
+        font-weight: bold;
+      }
+      #navbar > div {
+        margin-left: 10px;
+      }
+      #navbar > button {
+        border: none;
+        background-color: rgb(84, 75, 109);
+        padding: 10px;
+      }
+      a {
+        text-decoration: none;
+        color: aliceblue;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar">
+      <button><a href="home.html">HOMEPAGE</a></button>
+    </div>
+    <div id="main">
+      <table>
+        <thead></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </body>
+</html>
+<script>
+  calculate();
+  function calculate() {
+    let candidetailsarr =
+      JSON.parse(localStorage.getItem("studentDetails")) || [];
+    let obj = {};
+    for (let i = 0; i < candidetailsarr.length; i++) {
+      if (obj[candidetailsarr[i].studentBatch] === undefined) {
+        obj[candidetailsarr[i].studentBatch] = 1;
+      } else {
+        obj[candidetailsarr[i].studentBatch]++;
+      }
+    }
+
+    for (let key in obj) {
+      let p = document.createElement("div");
+      p.innerText = `${key} - ${obj[key]} |`;
+      document.querySelector("#navbar").append(p);
+    }
+  }
+  let candidetailsarr =
+    JSON.parse(localStorage.getItem("studentDetails")) || [];
+  let th1 = document.createElement("th");
+  th1.innerText = "STUDENT IMAGE";
+
+  let th2 = document.createElement("th");
+  th2.innerText = "NAME";
+
+  let th3 = document.createElement("th");
+  th3.innerText = "BATCH";
+
+  let th4 = document.createElement("th");
+  th4.innerText = "COURSE";
+
+  let th5 = document.createElement("th");
+  th5.innerText = "UNIT";
+
+  let th6 = document.createElement("th");
+  th6.innerText = "REMOVE";
+
+  document.querySelector("thead").append(th1, th2, th3, th4, th5, th6);
+
+  candidetailsarr.forEach((el, index) => {
+    let tr = document.createElement("tr");
+
+    let td1 = document.createElement("td");
+
+    let img = document.createElement("img");
+    img.setAttribute("src", el.img);
+    img.style = "width:70px;";
+    td1.append(img);
+
+    let td2 = document.createElement("td");
+    td2.innerText = el.studentName;
+    let td3 = document.createElement("td");
+    td3.innerText = el.studentBatch;
+    let td4 = document.createElement("td");
+    td4.innerText = el.studentCourse;
+    let td5 = document.createElement("td");
+    td5.innerText = el.studentUnit;
+    let td6 = document.createElement("td");
+    let btn = document.createElement("button");
+    btn.innerText = "REMOVE";
+
+    td6.append(btn);
+    td6.addEventListener("click", function () {
+      del(index, el);
+    });
+
+    tr.append(td1, td2, td3, td4, td5, td6);
+    document.querySelector("tbody").append(tr);
+  });
+  function del(index, el) {
+    let trash = JSON.parse(localStorage.getItem("trash")) || [];
+    trash.push(el);
+    localStorage.setItem("trash", JSON.stringify(trash));
+    candidetailsarr.splice(index, 1);
+    window.location.reload();
+    localStorage.setItem("studentDetails", JSON.stringify(candidetailsarr));
+  }
+</script>

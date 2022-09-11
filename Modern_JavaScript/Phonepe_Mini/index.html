@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phonepe</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      #main {
+        width: 80%;
+        margin: auto;
+        padding: 30px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+        margin-bottom: 20px;
+      }
+      #main h2 {
+        width: 35%;
+        margin: auto;
+        padding: 8px 0px;
+        text-align: center;
+        margin-bottom: 10px;
+        background-color: brown;
+        color: white;
+        font-weight: bold;
+      }
+
+      #display {
+        width: 50%;
+        margin: auto;
+      }
+
+      #display > img {
+        width: 100%;
+        height: 450px;
+        border-radius: 40px;
+      }
+      #pin {
+        padding: 10px;
+      }
+      button {
+        padding: 4px 10px;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        background-color: blue;
+        cursor: pointer;
+      }
+      #payment {
+        width: fit-content;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        margin: auto;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+          rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+          rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+      }
+      #payment h3 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      #pin {
+        border-radius: 5px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="payment">
+      <input type="number" placeholder="Enter Your PIN" id="pin" />
+      <button onclick="getPin()" id="btn">Submit</button>
+      <h3>Your Correct pin is:-1996</h3>
+    </div>
+    <div id="main">
+        <h2>Welcome to Phonepe Gateway</h2>
+      <div id="display">
+        <img src="" alt="" id="Image" width="300px" />
+        <h2 id="message">Please Wait....</h2>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  let LoadImg =
+    "http://cdn.home-designing.com/wp-content/uploads/2018/03/loading.gif";
+
+  let SuccesImg = "https://www.ftcash.com/instant_loans/img/4765982.gif";
+
+  let FailureImg =
+    "https://cdn.dribbble.com/users/1000837/screenshots/3857924/loader_failed_01.gif";
+
+  let message = document.getElementById("message");
+
+  function mypin(PIN) {
+    return new Promise((res, rej) => {
+      if (PIN === 1996 || PIN === "1996") {
+        res();
+      } else {
+        rej();
+      }
+    });
+  }
+
+  let img = document.getElementById("Image");
+
+  function getPin() {
+    let PIN = document.getElementById("pin").value;
+    mypin(PIN)
+      .then(() => {
+        img.src = LoadImg;
+        setTimeout(() => {
+          img.src = SuccesImg;
+          message.innerText = "Payment Completed";
+        }, 5000);
+      })
+      .catch(() => {
+        img.src = LoadImg;
+        setTimeout(() => {
+          img.src = FailureImg;
+          message.innerText = "Payment Failed";
+        }, 5000);
+      });
+  }
+</script>

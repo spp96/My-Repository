@@ -1,0 +1,5 @@
+Java is platform-independent because it uses a virtual machine.The Java programming
+language and all APIs are compiled into bytecodes. Bytecodes are effectively platform-independent.
+The virtual machine takes care of the differences between the bytecodes for the different platforms.
+The run-time requirements for Java are therefore very small.
+The Java virtual machine takes care of all hardware-related issues so that no code has to be compiled for different hardware.

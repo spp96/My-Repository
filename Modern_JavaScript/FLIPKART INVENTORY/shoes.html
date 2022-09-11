@@ -1,0 +1,109 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoes_page</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+      #navbar {
+        display: flex;
+        justify-content: flex-end;
+        gap: 20px;
+        padding: 20px 80px;
+        background-color: bisque;
+        position: relative;
+      }
+      #hm {
+        position: absolute;
+        left: 5%;
+      }
+      #navbar a {
+        text-decoration: none;
+        color: grey;
+      }
+      #container{
+        width: 70%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        grid-template-rows: auto;
+        gap: 20px;
+        margin-top: 10px;
+        justify-content: center;
+        align-items: center;
+        line-height: 30px;
+      }
+      #container img{
+        width: 100%;
+        height: 300px;
+        border-top-right-radius: 35px;
+      }
+      .items{
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border-radius: 15px;
+        border-top-right-radius: 35px;
+        
+      }
+    </style>
+  </head>
+  <body onload="getdata()">
+    <div id="navbar">
+      <h2 id="hm"><a href="index.html">Home</a></h2>
+      <h3><a href="trousers.html">Trousers</a></h3>
+      <h3><a href="shoes.html">Shoes</a></h3>
+      <h3><a href="tshirts.html">T-Shirts</a></h3>
+    </div>
+    <div id="container">
+
+    </div>
+  </body>
+</html>
+
+<script>
+  let getdata = () => {
+    let data = JSON.parse(localStorage.getItem("products_arr"));
+
+    data = data.filter(el => {
+      return el.Categories === "Shoes";
+
+      console.log(data)
+    });
+    append(data);
+  };
+  let container  = document.getElementById("container");
+
+  let append = (products_arr) =>{
+
+    
+    container.innerHTML=null;
+
+    products_arr.forEach(el => {
+
+        let img = document.createElement("img");
+        img.src = el.image
+        let pname = document.createElement("h2");
+        pname.innerText = el.name
+        pname.style="margin-left:10px"
+        let pcat = document.createElement("h3");
+        pcat.innerText = el.Categories
+        pcat.style="margin-left:10px"
+        let pprice = document.createElement("p");
+        pprice.innerText = el.price
+        pprice.style="margin-left:10px"
+
+        let items = document.createElement("div");
+        items.append(img,pname,pcat,pprice);
+        items.setAttribute("class","items")
+
+        container.append(items)
+        
+    });
+  }
+
+  getdata();
+</script>

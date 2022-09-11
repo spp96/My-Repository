@@ -1,0 +1,14 @@
+When we create string without new operator it will exist previous string and if you create another string it will print
+result true.
+Example :-
+     String a = "Hello World";
+     String b = "Hello World";
+if we compare both string like if(a==b), It will print result true.
+
+But When we create string with new operator it will create string in object form because new create always creates object
+so address will be changed and it will be stored in heap memory so if we compare both string it will print result false.
+
+Example :-
+      String x = "Hello World";
+      String y = new String ("Hello World");
+if we compare both string like if (x==y), It will print result false;

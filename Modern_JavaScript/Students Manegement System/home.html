@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HomePage</title>
+    <style>
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        margin: auto;
+        margin-top: 5%;
+        padding: 60px 30px;
+        border-radius: 15px;
+        box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+          rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+          rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+      }
+      input {
+        margin-bottom: 5%;
+        padding: 10px;
+      }
+      label {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      #navbar {
+        display: flex;
+        align-items: flex-start;
+        background-color: gray;
+        color: aliceblue;
+        padding: 10px;
+        align-items: center;
+        font-weight: bold;
+      }
+      #navbar > div {
+        margin-left: 10px;
+      }
+      #navbar > button {
+        border: none;
+        background-color: rgb(84, 75, 109);
+        padding: 10px;
+      }
+      a {
+        text-decoration: none;
+        color: aliceblue;
+        font-weight: bold;
+      }
+      input[type="submit"] {
+        border: none;
+        background-color: black;
+        color: white;
+        font-weight: bold;
+        font-size: 22px;
+        border-radius: 10px;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar">
+      <button><a href="dashboard.html">DASHBOARD</a></button>
+    </div>
+    <form action="">
+      <label for="">Name:</label>
+      <input type="text" id="name" placeholder="Enter Name of Student" />
+      <label for="">Course:</label>
+      <input type="text" id="course" placeholder="Enter Name of Course" />
+      <label for="">Unit:</label>
+      <input type="text" id="unit" placeholder="Enter Name of Unit" />
+      <label for="">Student Image:</label>
+      <input type="url" id="image" placeholder="Enter Image of url" />
+      <label for="">Batch:</label>
+      <input type="text" id="batch" placeholder="Enter Batch of Student" />
+      <input type="submit" />
+    </form>
+  </body>
+</html>
+<script>
+  document.querySelector("form").addEventListener("submit", data);
+  function constructorFunc(n, c, u, simg, b) {
+    this.studentName = n;
+    this.studentCourse = c;
+    this.studentUnit = u;
+    this.img = simg;
+    this.studentBatch = b;
+  }
+  function data() {
+    let name = document.getElementById("name").value;
+    let course = document.getElementById("course").value;
+    let unit = document.getElementById("unit").value;
+    let img = document.getElementById("image").value;
+    let batch = document.getElementById("batch").value;
+
+    let candi = new constructorFunc(name, course, unit, img, batch);
+
+    let candidetailsarr =
+      JSON.parse(localStorage.getItem("studentDetails")) || [];
+
+    candidetailsarr.push(candi);
+
+    localStorage.setItem("studentDetails", JSON.stringify(candidetailsarr));
+  }
+  calculate();
+  function calculate() {
+    let candidetailsarr =
+      JSON.parse(localStorage.getItem("studentDetails")) || [];
+    let obj = {};
+    for (let i = 0; i < candidetailsarr.length; i++) {
+      if (obj[candidetailsarr[i].studentBatch] === undefined) {
+        obj[candidetailsarr[i].studentBatch] = 1;
+      } else {
+        obj[candidetailsarr[i].studentBatch]++;
+      }
+    }
+
+    for (let key in obj) {
+      let p = document.createElement("div");
+      p.innerText = `${key} - ${obj[key]} |`;
+      document.querySelector("#navbar").append(p);
+    }
+  }
+</script>

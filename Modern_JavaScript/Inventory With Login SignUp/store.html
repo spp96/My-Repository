@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Store-Page</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      #navbar {
+        display: flex;
+        justify-content: flex-end;
+        gap: 20px;
+        padding: 20px 80px;
+        background-color: bisque;
+        position: relative;
+      }
+      #hm {
+        position: absolute;
+        left: 5%;
+      }
+      #navbar a {
+        text-decoration: none;
+        color: grey;
+      }
+      .product {
+        width: 80%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        gap: 20px;
+        margin: auto;
+      }
+      .product > div {
+        /* border: 1px solid; */
+        text-align: center;
+      }
+      img {
+        width: 100%;
+        height: 300px;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+      }
+      #remove {
+        margin-left: 10px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        color: antiquewhite;
+        font-weight: bold;
+        background-color: brown;
+      }
+      #counter {
+        width: 15%;
+        text-align: center;
+        font-size: 22px;
+        padding: 20px;
+        background-color: aqua;
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar">
+      <h2 id="hm"><a href="index.html">Home</a></h2>
+      <h3><a href="store.html">Store</a></h3>
+      <h3><a href="signup.html">Signup</a></h3>
+      <h3><a href="login.html">Login</a></h3>
+    </div>
+    <div id="counter"></div>
+    <div class="product"></div>
+  </body>
+</html>
+
+<script>
+  let productsarr = JSON.parse(localStorage.getItem("Products"));
+  productsarr.forEach((el, index) => {
+    let box = document.createElement("div");
+
+    let pic = document.createElement("img");
+    pic.src = el.image
+    let productnam = document.createElement("h3");
+    productnam.innerText = el.productname;
+    let productprice = document.createElement("p");
+    productprice.innerText = `Rs:- ${el.price}`;
+    productprice.style = "font-size:18px;font-weight:bold;";
+
+    box.append(pic, productnam, productprice);
+    document.querySelector(".product").append(box);
+  });
+
+  document.querySelector("#counter").innerText = `QTY = ${productsarr.length}`;
+</script>

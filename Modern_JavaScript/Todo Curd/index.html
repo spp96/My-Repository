@@ -1,0 +1,106 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins",sans-serif;
+      }
+      #main {
+        width: 50%;
+        margin: auto;
+        margin-top: 20px;
+        text-align: center;
+        padding: 20px 0px;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+          rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+      }
+      #main h2{
+        color: darkslategray;
+      }
+      #todo {
+        width: 80%;
+        margin-top: 10px;
+        font-size: 16px;
+        padding: 10px;
+      }
+      #container {
+        width: 100%;
+        margin: auto;
+        margin-top: 10px;
+      }
+      #container div {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        line-height: 40px;
+        padding: 10px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      }
+      #add{
+        background-color: darkcyan;
+        color: white;
+        border: none;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 8px 12px;
+        cursor: pointer;
+      }
+      .remove {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 5px 8px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      #mainCompleted {
+        width: 100%;
+        margin: auto;
+        margin-top: 10px;
+      }
+      #completed div {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        line-height: 40px;
+        padding: 10px;
+        text-decoration: line-through;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      }
+      #mainCompleted h3:nth-child(1) {
+        width: 50%;
+        margin-left: 40px;
+        text-align: justify;
+        padding: 5px 10px;
+        background-color: green;
+        color:white;
+        font-weight: bold;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div id="main">
+        <h2>Todo App</h2>
+      <input type="text" name="" id="todo" placeholder="Add To Do Task"/>
+      <button id="add" onclick="addTodo()">Add Todo</button>
+      <div id="container"></div>
+      <div id="mainCompleted">
+        <h3>Task Completed</h3>
+        <div id="Completed"></div>
+      </div>
+    </div>
+  </body>
+</html>
+<script src="index.js"></script>

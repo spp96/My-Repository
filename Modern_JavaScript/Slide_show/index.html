@@ -1,0 +1,182 @@
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>slideshow</title>
+        <style>
+            #slide{
+                width: 80%;
+                margin: auto;
+                position: relative;
+            }
+            #slide img{
+                width: 100%;
+                height: 500px;
+            }
+            #nslide{
+                width: 90%;
+                margin: auto;
+                position: relative;
+            }
+            #main button{
+                display: block;
+                margin: auto;
+                margin-bottom: 10px;
+                padding: 15px 20px;
+                cursor: pointer;
+                border-radius: 8px;
+                border: none;
+                color: white;
+                font-weight: bold;
+            }
+            #main{
+                display: flex;
+                width: 10%;
+                margin: auto;
+                gap: 10px;
+            }
+            #main>button:nth-child(1){
+                background-color: red;
+            }
+            #main>button:nth-child(2){
+                background-color: green;
+            }
+            #nslide > button{
+                position: absolute;
+                background-color: antiquewhite;
+                color: black;
+                font-weight: bold;
+                border: none;
+                font-size: 24px;
+                top: 40%;
+                width: 50px;
+                height: 50px;
+                cursor: pointer;
+                border-radius: 50%;
+                margin-top: 10px;
+            }
+            #nslide > button:hover{
+                background-color: brown;
+            }
+            #nslide >button:nth-child(1){
+                left: 5%;
+            }
+            #nslide >button:nth-child(2){
+                right: 5%;
+            }
+            h1{
+                text-align: center;
+                color: teal;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Slideshow</h1>
+        <div id="main">
+        <button onclick="stop()">Pause</button>
+        <button onclick="start()">Start</button>
+        </div>
+        
+        <div id="slide">
+        </div>
+
+        <div  id="nslide">
+            <button onclick="prev()"> < </button>
+            <button onclick="next()"> > </button>
+        </div>
+        
+    </body>
+    </html>
+    <script>
+    
+        let image = ["https://images.unsplash.com/photo-1658730335794-c5edd544ccbb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDF8Ym84alFLVGFFMFl8fGVufDB8fHx8&auto=format&fit=crop&w=900&q=60",
+    "https://images.unsplash.com/photo-1658778176925-e0027cd4259a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDJ8Ym84alFLVGFFMFl8fGVufDB8fHx8&auto=format&fit=crop&w=900&q=60",
+    "https://images.unsplash.com/photo-1657905041924-ffa7ab898773?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDR8Ym84alFLVGFFMFl8fGVufDB8fHx8&auto=format&fit=crop&w=900&q=60",
+    "https://images.unsplash.com/photo-1658713079210-237246e19013?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDE5fGJvOGpRS1RhRTBZfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=900&q=60",
+"https://images.unsplash.com/photo-1476610182048-b716b8518aae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8aWNlbGFuZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+"https://images.unsplash.com/photo-1506261423908-ea2559c1f24c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8aWNlbGFuZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+"https://images.unsplash.com/photo-1498008122250-bcb854c8462d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGljZWxhbmR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+"https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2FyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+"https://images.unsplash.com/photo-1494905998402-395d579af36f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y2FyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+"https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8Y2FyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+"https://images.unsplash.com/photo-1610552050890-fe99536c2615?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bGFuZHNjYXBlJTIwbmF0dXJlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+"https://images.unsplash.com/photo-1618477202872-89cec6f8d62e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8bGFuZHNjYXBlJTIwbmF0dXJlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+"https://images.unsplash.com/photo-1514908335854-3721e1cf3e8c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGxhbmRzY2FwZSUyMGFuaW1hbHN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+"https://images.unsplash.com/photo-1516704135885-dc4c68a189e3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGxhbmRzY2FwZSUyMGFuaW1hbHN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+"https://media.istockphoto.com/photos/elephant-and-kilimanjaro-picture-id496777728?b=1&k=20&m=496777728&s=170667a&w=0&h=UI7qJDKrnoeLc5TTPR72BdPK6x465iaG3AJOT_kzFh0=",
+"https://media.istockphoto.com/photos/wild-horses-running-free-picture-id1019461046?k=20&m=1019461046&s=612x612&w=0&h=kHAxewlsH2gaIzuCDZxr9rrk18h0xfTPwXFs0YkaPW0=",
+"https://media.istockphoto.com/photos/split-view-in-the-maldives-islands-picture-id1125859438?k=20&m=1125859438&s=612x612&w=0&h=fafFQ0x0bZ0_XVLI32EiOuYEyWh6fCV-FA202Utfqh4=",
+"https://media.istockphoto.com/photos/cows-on-a-field-picture-id148487154?k=20&m=148487154&s=612x612&w=0&h=2vAbClfiILerMwFFCdVQQR42OL0jS2YCWiF_euxU7vw=",
+"https://media.istockphoto.com/photos/african-sunset-with-silhouette-picture-id532389864?k=20&m=532389864&s=612x612&w=0&h=BZxQXKWFxj4CZMs0YxnOxNgJcL0UGGveeepU8baWd-0=",
+"https://media.istockphoto.com/photos/lion-in-high-grass-picture-id494856046?k=20&m=494856046&s=612x612&w=0&h=BfBXVsp_rWVVRz5020ldcsPaMPBoJGpW4uiSk4kk5R0=",
+"https://media.istockphoto.com/photos/el-nido-philippines-picture-id576724290?k=20&m=576724290&s=612x612&w=0&h=S0HirJosavs2AuQGUAzZyMteQ873g1UjNNewgdKyy4U=",
+"https://media.istockphoto.com/photos/colorful-coral-reef-with-many-fishes-picture-id508960952?k=20&m=508960952&s=612x612&w=0&h=LBXzOfev7ulFLSiWbdbO6G4NqmzqOsppTt69atO6ORs=",
+"https://media.istockphoto.com/photos/new-york-cab-on-a-bridge-picture-id959149062?k=20&m=959149062&s=612x612&w=0&h=HfZQac__e7zjHxG8J8d4a1ZhVvG_Dyd9thA67gg1Vko=",
+"https://media.istockphoto.com/photos/speeding-picture-id514802759?k=20&m=514802759&s=612x612&w=0&h=3D6SHPs5BKYZrTgjKhJSvD8Oq36cf4VcCrciTqp5fm8=",
+"https://media.istockphoto.com/photos/road-tripping-old-school-style-picture-id1244965687?k=20&m=1244965687&s=612x612&w=0&h=Kgen7p-trQXqkLNN7InoqE5Fcj7vw01H5ACLqVcPtj0="]
+    
+    let index = 0;
+    
+    let id;
+
+    let container = document.getElementById("slide");
+    let slideshow = () =>{
+       
+    
+    
+        id= setInterval(()=>{
+    
+            if (index === image.length){
+                index = 0;
+            }
+            container.innerHTML=null;
+    
+            let img = document.createElement("img");
+            img.src = image[index];
+            container.append(img);
+    
+            index++;
+    
+        },2000)
+    }
+    
+    
+    let stop = () =>{
+      clearInterval(id);
+    }
+    let start = () =>{
+        slideshow();
+    }
+
+    let next = () =>{
+        clearInterval(id);
+        if(index===image.length){
+            index=0;
+        }
+        container.innerHTML=null;
+    
+            img = document.createElement("img");
+            img.src = image[index];
+            container.append(img);
+    
+            index++;
+    }
+
+    let prev = () =>{
+        clearInterval(id);
+        if(index < 0){
+            index=image.length-1;
+        }
+        container.innerHTML=null;
+    
+             img = document.createElement("img");
+            img.src = image[index];
+            container.append(img);
+
+            index--;
+    
+    }
+    slideshow();
+    </script>

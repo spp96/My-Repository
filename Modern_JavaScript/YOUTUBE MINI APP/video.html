@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyYouTube-Video</title>
+    <style>
+      #nav {
+        width: 100%;
+        text-align: center;
+        margin: auto;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        z-index: 97;
+        top: 0;
+        background-color: white;
+
+        position: fixed;
+      }
+      .first {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+      .first > img {
+        width: 80px;
+        margin-right: -20px;
+      }
+      h1:nth-child(3) {
+        color: red;
+      }
+      #query {
+        width: 100%;
+        padding: 10px 20px;
+        text-align: justify;
+      }
+      .second > span {
+        font-size: 20px;
+
+        padding: 5px;
+        border-radius: 100%;
+      }
+      .second {
+        width: 60%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        cursor: pointer;
+      }
+      .third {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        align-content: center;
+        padding-inline: 10px;
+        cursor: pointer;
+      }
+      .third img {
+        width: 30px;
+        margin-right: 10px;
+      }
+      .second button {
+        padding: 6px 20px;
+        margin-top: 5px;
+        margin-right: 10px;
+      }
+      .second button + span {
+        font-size: 24px;
+        background-color: whitesmoke;
+        padding: 8px;
+      }
+      .menulogo {
+        width: 30px;
+        margin-left: 15px;
+      }
+      .person {
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body onload="playvideo()">
+    <div id="nav">
+      <div class="first">
+        <div>
+          <img
+            class="menulogo"
+            src="https://cdn-icons-png.flaticon.com/128/545/545705.png"
+            alt=""
+          />
+        </div>
+        <img
+          src="https://www.freeiconspng.com/uploads/youtube-logo-png-photo-0.png"
+          alt=""
+        />
+        <h1>My</h1>
+        <h1>YouTube</h1>
+      </div>
+      <div class="second">
+        <input type="text" name="" id="query" placeholder="Search" />
+        <button onclick="search()">
+          <span class="material-symbols-outlined"> search </span>
+        </button>
+        <span class="material-symbols-outlined"> mic </span>
+      </div>
+      <div class="third">
+        <div>
+          <img
+            src="https://cdn-icons.flaticon.com/png/128/4189/premium/4189286.png?token=exp=1657033501~hmac=0ee4523a73c2bcec816afda4252ed855"
+            alt=""
+          />
+        </div>
+        <div>
+          <img
+            src="https://cdn-icons.flaticon.com/png/128/2985/premium/2985051.png?token=exp=1657038817~hmac=bc84b86b80c8d38b343c4bc0a80c2b81"
+            alt=""
+          />
+        </div>
+  
+        <div>
+          <span class="material-symbols-outlined"> notification_add </span>
+        </div>
+        <div>
+          <img
+            class="person"
+            src="https://cdn-icons.flaticon.com/png/128/3024/premium/3024605.png?token=exp=1657038958~hmac=4e806d77a560ac578783750b9ea9c9c0"
+            alt=""
+          />
+        </div>
+        <div></div>
+      </div>
+    </div>
+
+    
+    <!-- <div id="container"></div> -->
+    <h1>Play Video</h1>
+    
+    <iframe
+      width="560"
+      height="315"
+      id="play_video"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </body>
+</html>
+<script>
+  let playvideo = () => {
+    let video = JSON.parse(localStorage.getItem("video"));
+let id = video.id.videoId;
+    let play_video = document.getElementById("play_video");
+    play_video.src = `https://www.youtube.com/embed/${id}`
+  };
+</script>

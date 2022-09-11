@@ -1,0 +1,127 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipkart_Inventory</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+        #product_form{
+            width: 30%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            padding: 20px 60px;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+        #product_form input{
+            margin-bottom: 10px;
+        }
+        #Categories{
+            margin-bottom: 10px;
+        }
+        #navbar{
+
+            display: flex;
+            justify-content:flex-end;
+            gap: 20px;
+            padding: 20px 80px;
+            background-color: bisque;
+            position: relative;
+        }
+        #hm{
+            position: absolute;
+            left: 5%;
+        }
+        #navbar a{
+            text-decoration: none;
+            color: grey;
+        }
+        #submit{
+            width: 40%;
+            margin: auto;
+            border-radius: 8px;
+            border: none;
+            background-color: aquamarine;
+            padding: 10px 0px;
+            cursor: pointer;
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        #product_form h2{
+            text-align: center;
+            color: teal;
+            margin-bottom: 8px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <h2 id="hm"><a href="index.html">Home</a></h2>
+            <h3><a href="trousers.html">Trousers</a></h3>
+            <h3><a href="shoes.html">Shoes</a></h3>
+            <h3><a href="tshirts.html">T-Shirts</a></h3>
+    </div>
+    <div>
+        <form id="product_form" action="">
+            <h2>Admin Panel</h2>
+    
+            <input type="text" id="name" placeholder="Name">
+            <input type="url" id="image" placeholder="Image_URL">
+            <select name="" id="Categories">
+                <option value="Select Category">Select_Category</option>
+                <option value="Trousers">Trousers</option>
+                <option value="Shoes">Shoes</option>
+                <option value="T-Shirts">T-Shirts</option>
+            </select>
+            <input type="number" id="price" placeholder="price">
+            <input type="submit" onclick="sub()"id="submit">
+        </form>
+    </div>
+   
+    
+</body>
+</html>
+
+<script>
+
+    
+
+    let sub = () =>{
+        event.preventDefault()
+        let name = document.getElementById("name").value;
+        let image = document.getElementById("image").value;
+        let Categories = document.getElementById("Categories").value;
+        let price = document.getElementById("price").value;
+
+        let Data = new data (name,image,Categories,price);
+        let products_arr = JSON.parse(localStorage.getItem("products_arr"))||[];
+        products_arr.push(Data)
+
+        localStorage.setItem("products_arr",JSON.stringify(products_arr))
+
+
+        document.getElementById("name").innerHTML=null;
+        document.getElementById("image").innerHTML=null;
+         document.getElementById("Categories").innerHTML=null;
+     document.getElementById("price").innerHTML=null;
+    }
+
+
+    function data (n,img,c,p){
+         this.name = n
+         this.image = img
+         this.Categories = c
+         this.price = p
+    }
+</script>

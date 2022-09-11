@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UserDetailsPage</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      #navbar {
+        display: flex;
+        justify-content: flex-end;
+        gap: 20px;
+        padding: 20px 80px;
+        background-color: bisque;
+        position: relative;
+      }
+      #hm {
+        position: absolute;
+        left: 5%;
+      }
+      #navbar a {
+        text-decoration: none;
+        color: grey;
+      }
+      #container {
+        width: 70%;
+        padding: 10px;
+        margin: auto;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px,
+          rgb(51, 51, 51) 0px 0px 0px 3px;
+      }
+      #container div {
+        display: flex;
+        justify-content: space-around;
+        padding: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        border-radius: 10px;
+        margin-top: 10px;
+
+        box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+          rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+          rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+      }
+      #container div button {
+        border: none;
+        background-color: black;
+        color: white;
+        font-weight: bold;
+        padding: 0 10px;
+        cursor: pointer;
+        border-radius: 10px;
+      }
+      .heading{
+        width: fit-content;
+        margin: auto;
+        text-align: center;
+         color:white ; 
+         margin-top: 10px;
+         margin-bottom: 10px;
+         border-radius: 15px;
+        padding: 20px; 
+        background-color: brown;
+      }
+    
+    </style>
+  </head>
+  <body onload="append()">
+    <div id="navbar">
+      <h2 id="hm"><a href="index.html">Home</a></h2>
+      <h3><a href="store.html">Store</a></h3>
+      <h3><a href="signup.html">Signup</a></h3>
+      <h3><a href="login.html">Login</a></h3>
+      <h3><a href="addproduct.html">Admin</a></h3>
+    </div>
+    <h1 class="heading">User List</h1>
+    <div id="container"></div>
+  </body>
+</html>
+<script>
+  let container = document.querySelector("#container");
+  let append = () => {
+    let data = JSON.parse(localStorage.getItem("login"));
+    container.innerHTML = null;
+    data.forEach((el, id) => {
+      let index = document.createElement("p");
+      index.innerText = id + 1;
+      let name = document.createElement("p");
+      name.innerText = el.username;
+
+      let role = document.createElement("p");
+      role.innerText = el.role;
+
+      let loginTime = document.createElement("p");
+      loginTime.innerText = el.date;
+      let btn = document.createElement("button");
+      btn.innerText = `REMOVE`;
+      btn.addEventListener("click", () => {
+        name.parentNode.remove();
+        data.splice(id, 1);
+        localStorage.setItem("login", JSON.stringify(data));
+        append();
+      });
+
+      let div = document.createElement("div");
+      div.append(index, name, role, loginTime, btn);
+      container.append(div);
+    });
+  };
+</script>

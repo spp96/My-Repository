@@ -1,0 +1,120 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do App</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      form {
+        width: 80%;
+      }
+      form * {
+        width: 100%;
+        height: 20px;
+        margin-top: 5px;
+      }
+      table {
+        width: 80%;
+      }
+      th,
+      td {
+        border: 1px solid;
+        text-align: center;
+      }
+      h1 {
+        color: blueviolet;
+      }
+      td:nth-child(3) {
+        background-color: red;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Todo Lists</h1>
+    <form action="">
+      <input type="text" name="" id="" />
+      <input type="submit" name="" id="" />
+    </form>
+    <table>
+      <thead>
+        <tr>
+          <th>Todo's</th>
+          <th>Mark as Completed</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </body>
+</html>
+<script>
+  let form = document.querySelector("form");
+
+  let lsData = JSON.parse(localStorage.getItem("lsData")) || [];
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let inputData = form[0].value;
+
+    lsData.push(inputData);
+
+    localStorage.setItem("lsData", JSON.stringify(lsData));
+    location.reload();
+  });
+
+  lsData.map((data, index) => {
+    let tbody = document.querySelector("tbody");
+    let tr = document.createElement("tr");
+
+    let td1 = document.createElement("td");
+    td1.innerText = "Mark As complete";
+    td1.addEventListener("click", () => {
+      
+      green(td1);
+    });
+
+    let td = document.createElement("td");
+    td.innerText = data;
+
+    let Remove = document.createElement("td");
+    Remove.innerText = "Remove";
+    Remove.addEventListener("click", () => {
+      del(index, data);
+    });
+
+    tr.append(td, td1, Remove);
+    tbody.append(tr);
+  });
+  function green(td1) {
+
+    td1.style="background-color:green"
+    
+  }
+
+  function comlete(index) {
+    let bye = document.getElementById("");
+  }
+
+  function del(e) {
+    let deleted = lsData.filter((data, index) => {
+      return index !== e;
+    });
+    localStorage.setItem("lsData", JSON.stringify(deleted));
+    location.reload();
+  }
+</script>

@@ -1,0 +1,146 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+#navbar {
+  width: 95%;
+  margin: auto;
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  border: 2px solid;
+  gap: 20px;
+  padding: 30px;
+  border-radius: 15px;
+  background-color: blanchedalmond;
+}
+a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+a:hover {
+  color: orangered;
+}
+#container-1 {
+  width: 80%;
+  margin: auto;
+  margin-top: 20px;
+  align-items: center;
+  background-image: url("https://thumbs.dreamstime.com/b/greek-food-background-traditional-different-dishes-top-view-close-up-153149838.jpg");
+  background-repeat: no-repeat;
+  background-size: 150%;
+}
+img {
+  width: 200px;
+}
+#container-1 div {
+  width: fit-content;
+  padding: 5%;
+  text-align: center;
+  margin-bottom: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+}
+input {
+  width: 30%;
+  margin-right: 10%;
+  padding: 10px 30px;
+}
+#navbar > #home {
+  position: absolute;
+  left: 5%;
+}
+#search {
+  display: flex;
+  margin-right: 40%;
+}
+p {
+  font-weight: bold;
+}
+#SignUpform > form {
+  width: fit-content;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  padding: 30px 100px;
+  background-color: rgba(80, 80, 80, 0.453);
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+#SignUpform > form input {
+  width: 100%;
+  margin-bottom: 10px;
+}
+#SignUpform > form h3 {
+  text-align: center;
+}
+#SignUpform > form p {
+  text-align: center;
+}
+#SignUpform > form a {
+  color: darkgoldenrod;
+}
+#SignUpform > form a:hover {
+  color: gold;
+}
+#main {
+  background-image: url("https://images.unsplash.com/photo-1447078806655-40579c2520d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+#loginform > form {
+  width: fit-content;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  padding: 30px 100px;
+  background-color: rgba(80, 80, 80, 0.453);
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+#loginform > form input {
+  width: 100%;
+  margin-bottom: 10px;
+}
+#loginform > form h3 {
+  text-align: center;
+}
+#loginform > form a {
+  color: white;
+}
+#loginform > form a:hover {
+  color: gold;
+}
+#sub {
+  background-image: url("https://img.freepik.com/free-vector/fast-food-black-background-poster_1284-14589.jpg?w=2000");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+#submit {
+  background-color: teal;
+  color: snow;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+}
+#submit:hover {
+  background-color: rgb(255, 150, 150);
+}
+#UserDetails {
+  width: 40%;
+  margin: auto;
+  /* border: 2px solid; */
+  text-align: center;
+  padding: 20px;
+  box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px,
+    rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px,
+    rgb(255, 85, 85) 0px 0px 0px 15px;
+    background-color: thistle;
+}

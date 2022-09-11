@@ -1,0 +1,162 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      #navbar {
+        display: flex;
+        justify-content: flex-end;
+        gap: 20px;
+        padding: 20px 80px;
+        background-color: bisque;
+        position: relative;
+      }
+      #hm {
+        position: absolute;
+        left: 5%;
+      }
+      #navbar a {
+        text-decoration: none;
+        color: grey;
+      }
+      #signup > form{
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        padding: 60px 30px;
+        margin-top: 40px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border-radius: 15px;
+      }
+      input {
+        margin-bottom: 10px;
+        padding: 10px;
+        font-weight: bold;
+      }
+      #submit {
+        padding: 10px;
+        background-color: black;
+        color: white;
+        font-weight: bold;
+        border-radius: 10px;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      #role{
+        margin-bottom: 10px;
+        padding: 10px;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar">
+        <h2 id="hm"><a href="index.html">Home</a></h2>
+        <h3><a href="store.html">Store</a></h3>
+        <h3><a href="signup.html">Signup</a></h3>
+        <h3><a href="login.html">Login</a></h3>
+      </div>
+    <div id="signup">
+      <form action="">
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Enter Name"
+          required
+        />
+        <input
+          type="text"
+          name="Username"
+          id="username"
+          placeholder="Enter Username"
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Enter Email"
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Enter Password"
+          required
+        />
+        <select name="" id="role">
+          <option value="Select">SelectRole</option>
+          <option value="Admin">Admin</option>
+          <option value="Users">Users</option>
+        </select>
+        <input onclick="signup()"
+          type="submit"
+          name="submit"
+          id="submit"
+        />
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+     let SignupData = JSON.parse(localStorage.getItem("SignupData"))||[];
+    let signup = () =>{
+        event.preventDefault()
+        let name = document.getElementById("name").value;
+        let username = document.getElementById("username").value;
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        let role = document.getElementById("role").value;
+
+        let signup_data = new data(name,username,email,password,role);
+
+       
+        
+        if (checkUserdetails(signup_data.email)===true){
+            SignupData.push(signup_data);
+            localStorage.setItem("SignupData",JSON.stringify(SignupData));
+            alert(`${name},Your Signup is Successful`)
+            window.location.href = "login.html"
+        } else {
+            alert ("Acount already Exit")
+        }
+        console.log(signup_data)
+    }
+
+
+
+    let checkUserdetails = (email) =>{
+
+        let filtered = SignupData.filter((el =>{
+            return email === el.email;
+        }))
+        if (filtered.length >0){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function data(n,u,e,p,r){
+        this.name = n
+        this.username = u
+        this.email = e
+        this.password = p
+        this.role = r
+    }
+</script>

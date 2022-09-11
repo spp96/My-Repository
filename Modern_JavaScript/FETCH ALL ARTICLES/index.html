@@ -1,0 +1,106 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Articles</title>
+   <style>
+     #container{
+      width: 80%;
+      margin: auto;
+      border: 2px solid red;
+      display: grid;
+      gap: 20px;
+      padding: 20px;
+      grid-template-columns: repeat(3,1fr);
+      grid-template-rows: auto;
+      text-align: center;
+    }
+    #container div{
+      border: 2px solid blue;
+    }
+    #sorting{
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+    #sorting button{
+      cursor: pointer;
+      padding: 6px;
+    }
+   </style>
+  </head>
+  <body>
+    <div id="sorting">
+      <button onclick="sorting_LH()">Comments Low to High</button>
+      <button onclick="sorting_HL()">Comments High to Low</button>
+    </div>
+   
+    <div id="container">
+
+    </div>
+  
+  </body>
+</html>
+
+<script>
+  let allpromises = [];
+
+  for (let i = 1; i <= 5; i++) {
+    let url1 = `https://jsonmock.hackerrank.com/api/articles?page=${i}`;
+    let promise = fetch(url1).then((res) => res.json());
+    allpromises.push(promise);
+  }
+  let id = "";
+  let getdata = async () => {
+    let data = await Promise.all(allpromises);
+
+    let result = [];
+
+    for (let j=0;j<5;j++){
+      result.push(...data[j].data)
+    }
+   
+ id = result
+    append(id)
+  };
+  getdata();
+
+
+  let append = (result) =>{
+    let container = document.getElementById("container");
+
+    container.innerHTML = "";
+
+    result.forEach(({title,author,num_comments}) => {
+
+        let t = document.createElement("h2");
+        t.innerText = `Title:- ${title}` ;
+        let a = document.createElement("h3");
+        a.innerText = `Author:- ${author}`;
+        let c = document.createElement("p");
+        c.innerText = `Comments:- ${num_comments}`;
+
+        let div = document.createElement("div");
+        div.append(t,a,c);
+        container.append(div);
+        
+    });
+
+  }
+
+  let sorting_LH = () =>{
+
+    let x = id.sort((a,b)=>{
+      return a.num_comments - b.num_comments
+    })
+    append(x);
+  }
+  let sorting_HL = () =>{
+
+    let x = id.sort((a,b)=>{
+      return b.num_comments - a.num_comments
+    })
+    append(x);
+  }
+</script>

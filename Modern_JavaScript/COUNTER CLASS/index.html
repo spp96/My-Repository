@@ -1,0 +1,99 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter</title>
+    <style>
+      #main {
+        width: 20%;
+        margin: auto;
+        text-align: center;
+        padding: 20px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+      button {
+        padding: 5px 20px;
+        cursor: pointer;
+      }
+      input{
+        padding: 5px 20px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <h1>COUNTER APP</h1>
+      <input type="button" value="play" id="play_pause" onclick="playpause()" />
+      <h2 id="value"></h2>
+      <button id="add_button">Add</button>
+      <button id="sub_button">Sub</button>
+    </div>
+  </body>
+</html>
+<script>
+  class Counter {
+    #value;
+    #onUpdateCallback;
+    constructor(init) {
+      this.#value = init;
+      this.length = 0;
+    }
+
+    get value() {
+      return this.#value;
+    }
+
+    set value(newvalue) {
+      this.#value = newvalue;
+    }
+
+    set callback(cb) {
+      this.#onUpdateCallback = cb;
+    }
+    get callback() {
+      return this.#onUpdateCallback;
+    }
+  }
+
+  let counter = new Counter(0);
+  let id;
+
+  let res = document.getElementById("value");
+  res.innerHTML = counter.value;
+  window.addEventListener("load", () => {
+    res.innerHTML = counter.value;
+    counter.callback = rendam;
+    let btn = document.getElementById("add_button");
+    btn.addEventListener("click", () => {
+      counter.value++;
+      counter.callback();
+      clearInterval(id);
+    });
+    let btn2 = document.getElementById("sub_button");
+    btn2.addEventListener("click", () => {
+      counter.value--;
+      counter.callback();
+      clearInterval(id);
+    });
+  });
+
+  function rendam() {
+    res.innerHTML = counter.value;
+  }
+
+  let playpause = () => {
+    let btn = document.getElementById("play_pause");
+
+    if (btn.value === "play") {
+      btn.value = "pause";
+      id = setInterval(() => {
+        res.innerHTML = counter.value++;
+      }, 1000);
+    } else {
+      btn.value = "play";
+      clearInterval(id);
+    }
+  };
+</script>

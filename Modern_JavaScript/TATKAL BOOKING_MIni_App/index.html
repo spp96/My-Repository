@@ -1,0 +1,203 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tatkal-Bookong App</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      nav {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+        background-color: rosybrown;
+        padding: 20px;
+      }
+      nav img {
+        width: 50px;
+        height: 50px;
+      }
+      nav h1 {
+        color: brown;
+        font-size: 30px;
+        font-weight: bold;
+      }
+      form {
+        display: flex;
+        justify-content: space-evenly;
+        width: 80%;
+        margin: auto;
+        margin-top: 20px;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+          rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+          rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+      }
+      input {
+        font-size: 16px;
+        text-align: center;
+        padding: 10px;
+        border-radius: 10px;
+      }
+      #submit {
+        font-size: 18px;
+        padding: 0px 25px;
+        border-radius: 10px;
+        background-color: royalblue;
+        color: white;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+      }
+      #box {
+        width: 80%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: auto;
+        text-align: center;
+      }
+      #waiting {
+        width: 30%;
+        margin-top: 30px;
+        padding: 20px;
+        box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px,
+          rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px,
+          rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px;
+      }
+
+      #ticket {
+        width: 30%;
+        margin-top: 30px;
+        padding: 20px;
+        box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px,
+          rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px,
+          rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px;
+      }
+      #ticket img {
+        width: 100%;
+        margin-top: 20px;
+      }
+      #image {
+        width: 200px;
+        height: 200px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <nav>
+      <img
+        src="https://www.irctc.co.in/nget/assets/images/secondry-logo.png"
+        alt=""
+      />
+      <h1>Railway Tatkal Quota</h1>
+    </nav>
+    <div>
+      <form action="">
+        <input
+          type="text"
+          name=""
+          id="name"
+          placeholder="Enter Your Name"
+          required
+        />
+        <input
+          type="number"
+          name=""
+          id="mobile"
+          placeholder="Enter Your Mobile No."
+          required
+        />
+        <input type="text" name="" id="start" placeholder="From" required />
+        <input type="text" name="" id="end" placeholder="To" required />
+        <button type="submit" id="submit" onclick="main()">Submit</button>
+      </form>
+    </div>
+    <div id="box">
+      <div id="waiting">
+        <h3>Waiting List Numbers</h3>
+      </div>
+      <div id="ticket">
+        <h3>Your Ticket Details</h3>
+        <img
+          src="https://c.tenor.com/PKyZc3PFqzwAAAAM/filas-serious.gif"
+          alt=""
+        />
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  let total_seat = 100;
+  let waiting_seat = 106;
+
+  let waitingList = document.getElementById("waiting");
+  let confirmList = document.getElementById("ticket");
+
+  let id;
+  let stop;
+  let main = () => {
+    event.preventDefault();
+
+    alert("Your Details Submitted,Please Wait For Few Seconds");
+
+    stop = setInterval(() => {
+      waiting_seat--;
+
+      waitingPList(waiting_seat);
+    }, 3000);
+
+    let name = document.getElementById("name").value;
+    let mob = document.getElementById("mobile").value;
+    let jstart = document.getElementById("start").value;
+    let jend = document.getElementById("end").value;
+    waiting_seat++;
+
+    let promise = new Promise((res, rej) => {
+      id = setInterval(() => {
+        if (waiting_seat <= total_seat) {
+          res(`Your Ticket is Confirmed.`);
+          clearInterval(id);
+          clearInterval(stop);
+        }
+      }, 1000);
+    });
+
+    promise.then((res) => {
+      alert(
+        `Hello ${name} ${res} and Ticket No. is ${waiting_seat} from ${jstart} to ${jend}`
+      );
+      confirmList.innerHTML = null;
+      let pname = document.createElement("h3");
+      pname.innerText = `Name:${name}`;
+      let info = document.createElement("h3");
+      info.innerText = `Journey starts From:${jstart} end to ${jend}`;
+
+      let status = document.createElement("h3");
+      status.innerText = `Status:${res}`;
+
+      let ticketn = document.createElement("h3");
+      ticketn.innerText = `Ticket No:${waiting_seat}`;
+
+      let img = document.createElement("img");
+      img.src = "https://media1.giphy.com/media/ZHLy7N0tUdtHxqfZpA/giphy.gif";
+      img.setAttribute("id", "image");
+      confirmList.append(pname, info, status, ticketn, img);
+    });
+  };
+
+  let waitingPList = (data) => {
+    waitingList.innerHTML = null;
+    let list = document.createElement("h3");
+    list.innerText = `Waiting List: ${data}`;
+    waitingList.append(list);
+  };
+</script>
