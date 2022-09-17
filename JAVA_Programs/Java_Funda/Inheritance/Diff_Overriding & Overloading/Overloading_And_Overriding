@@ -1,0 +1,37 @@
+Answer : In the method overloading, methods or functions must have the same name and different signatures.
+         Whereas in the method overriding, methods or functions must have the same name and same signatures.
+         Method overloading is a example of compile time polymorphism.
+         Whereas method overriding is a example of run time polymorphism.
+
+         --->
+         Overloading means creating same name methods inside a class but its parameter types are different.
+
+         Example-->
+
+         void funA(){
+         System.out.prinln("Hi this is overloading");
+
+         }
+
+         void funA(int a){
+         System.out.prinln("Hi this is overloading but using int (a)");
+
+         }
+
+         Overriding means creating same name method with same parameter types in child class. but inner statements are modified.
+         Example-->
+
+         public class Main{
+            void funA(){
+                System.out.prinln("Hi this is overriding");
+            }
+
+         }
+
+         public class Demo extends Main{
+            void funA(){
+                System.out.prinln("Hi this is overriding statment-1");
+                System.out.prinln("Hi this is overriding statment-2");
+            }
+
+         }

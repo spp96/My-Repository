@@ -1,0 +1,31 @@
+The super keyword in Java is a reference variable which is used to refer immediate parent class object.
+
+Whenever you create the instance of subclass, an instance of parent class is created implicitly which is referred by super reference variable.
+
+Example :-
+
+        class Animal{
+        String color = "White";
+        }
+
+        class Dog extends Animal{
+         String color = "Black";
+         void printColor(){
+          System.out.println(color); //It will print color of Dog class
+          System.out.println(super.color); //It will print color of Animal class
+
+          }
+        }
+
+        class Demo{
+        public static void main (String [] args){
+
+           Dog d = new Dog(); // we will create obj of Dog class;
+           d.printColor();
+
+           }
+        }
+
+        Output will get :-
+         Black
+         White
