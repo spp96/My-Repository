@@ -1,0 +1,9 @@
+Answer :-
+
+1) Checked_Exception : The classes that directly inherit the Throwable class except RuntimeException and Error are known as checked exceptions.
+                       For example, IOException, etc. Checked exceptions are checked at compile-time.
+
+2Unchecked_Exception : The classes that inherit the RuntimeException are known as unchecked exceptions.
+                       For example, ArithmeticException, NullPointerException, etc.
+                       Unchecked exceptions are not checked at compile-time, but they are checked at runtime.
+
