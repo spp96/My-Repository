@@ -1,0 +1,12 @@
+Answer : -
+
+1) ArrayList : -ArrayList internally uses a dynamic array to store the elements.
+               -An ArrayList class can act as a list only because it implements List only.
+               -ArrayList is better for storing and accessing data.
+               -Generally, when an ArrayList is initialized, a default capacity of 10 is assigned to the ArrayList.
+
+2) LinkedList : -LinkedList internally uses a doubly linked list to store the elements.
+                -LinkedList class can act as a list and queue both because it implements List and Deque interfaces.
+                -LinkedList is better for manipulating data.
+                -There is no case of default capacity in a LinkedList. In LinkedList,
+                 an empty list is created when a LinkedList is initialized.
