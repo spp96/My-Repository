@@ -1,0 +1,5 @@
+Answer:
+
+Race condition is a condition in which two or more threads compete together to 
+get certain shared resources.
+

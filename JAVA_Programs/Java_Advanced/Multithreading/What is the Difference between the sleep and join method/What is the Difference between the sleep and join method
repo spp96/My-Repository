@@ -1,0 +1,14 @@
+Answer:
+
+sleep() method:
+
+If a thread doesn’t want to perform any operation for a particular amount of time, then we should go for sleep() method.
+it is static method,it is overloaded,Is it throws Interrupted Exception,These are variety here. Sleep(long ms):- native  
+Sleep(long ms, int ns) :non-native
+
+
+join() method:
+
+If a thread wants to wait until completing thread some other threads, then we should go for join.
+it is non-static method,it is final method,Is it overloaded,Is it throws Interrupted Exception,it
+is non-native method.

@@ -1,0 +1,19 @@
+Answer:
+1. Responsiveness
+Multithreading in an interactive application enables a program to continue running even if a section is blocked or executing a lengthy process,
+ increasing user responsiveness.
+ 
+2. Resource Sharing
+Processes can only share the resources only via two techniques such as:
+
+Message Passing
+Shared Memory
+
+3.Better Communication
+Thread synchronization functions could be used to improve inter-process communication. 
+Moreover, sharing huge amounts of data across multiple threads of execution inside the same address space provides extremely high-bandwidth,
+ low-latency communication across various tasks within an application.
+ 
+ 4.Minimized system resource usage
+Threads have a minimal influence on the system's resources. 
+The overhead of creating, maintaining, and managing threads is lower than a general process.

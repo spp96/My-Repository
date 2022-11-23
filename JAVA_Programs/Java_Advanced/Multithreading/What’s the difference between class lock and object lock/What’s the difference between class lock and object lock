@@ -1,0 +1,8 @@
+Answer:
+
+Object Level Locks − It can be used when you want non-static method or non-static
+ block of the code should be accessed by only one thread.
+
+
+Class Level locks − It can be used when we want to prevent multiple threads to enter 
+the synchronized block in any of all available instances on runtime.

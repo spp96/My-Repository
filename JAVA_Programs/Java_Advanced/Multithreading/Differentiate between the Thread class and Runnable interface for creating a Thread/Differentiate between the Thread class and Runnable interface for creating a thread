@@ -1,0 +1,20 @@
+Answer:-
+1
+Basic 
+Thread is a class. It is used to create a thread 
+Runnable is a functional interface which is used to create a thread 
+2
+Methods
+It has multiple methods including start() and run()
+It has only abstract method run()
+3
+ 	Each thread creates a unique object and gets associated with it
+Multiple threads share the same objects.
+4
+Memory 
+More memory required in Thread
+Less memory required Runnable
+5
+Limitation 
+Multiple Inheritance is not allowed in java hence after a class extends Thread class, it can not extend any other class
+If a class is implementing the runnable interface then your class can extend another class.

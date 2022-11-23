@@ -1,0 +1,28 @@
+Answer:
+
+ThreadPool:A thread pool reuses previously created threads to execute current tasks and offers 
+a solution to the problem of thread cycle overhead and resource thrashing.
+
+How To Create ThreadPool in Java?
+Answer:
+Steps to be followed
+
+1. Create a task(Runnable Object) to execute
+2. Create Executor Pool using Executors
+3. Pass tasks to Executor Pool
+4. Shutdown the Executor Pool
+
+Difference Between Callable and Runnable Inteface?
+Answer:
+
+Runnable interface: -The package named java.lang is used in this interface.
+                    -Can’t throw an exception.
+                    -It uses the run() method.
+                    -This interface can’t return the result of any calculation.
+                    
+
+Callable interface: -It is considered a part of a package named java.util.concurrent.
+                    -This interface can throw an exception.
+                    -Call() method is used in this regard.
+                    -A runnable interface can return the result of any processed task.
+

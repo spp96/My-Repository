@@ -1,0 +1,12 @@
+Answer:
+
+sleep() method:-The wait() method releases the lock.
+               -It is a method of Object class.
+               -It is the non-static method.
+               -It should be notified by notify() or notifyAll() methods.
+
+wait() method:-The wait() method doesn't releases the lock.
+               -It is a method of Thread class.
+               -It is the static method.
+               -It should be notified by notify() or notifyAll() methods.
+               -After the specified amount of time, sleep is completed.               

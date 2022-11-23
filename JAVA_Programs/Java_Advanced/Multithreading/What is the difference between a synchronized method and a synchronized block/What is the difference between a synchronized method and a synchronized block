@@ -1,0 +1,9 @@
+Answer:-
+
+The main difference between synchronized block and synchronized method is that synchronized block
+locks the code within the block whereas synchronized method locks the entire object.
+
+
+synchronized blocks are more general and synchronized methods can be rewritten to use
+synchronized blocks. So if you want to lock the whole object, use a synchronized method. 
+If you want to keep other parts of the object accessible to other threads, use synchronized block.
