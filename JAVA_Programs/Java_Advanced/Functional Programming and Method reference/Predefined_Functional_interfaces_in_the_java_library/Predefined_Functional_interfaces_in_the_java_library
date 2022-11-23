@@ -1,0 +1,39 @@
+Answer:-
+Some predifined Functional intefaces in the java library are as follows:
+
+1) Consumer
+2) Predicate
+3) Function 
+4) Supplier
+
+Above interfaces belongs to "java.util.function" package.
+
+1) Consumer :-
+
+   java.util.function.Consumer<T>;
+          ============
+          
+   public abstract void accept(T t);
+   
+   --this method accept the object of generic type and it does not return anything.
+
+2) Predicate :-
+
+this interface has only one abstract method
+    public Predicate <T>
+          
+   public boolean test(T t);       
+   
+3) Function :-
+
+   java.util.function.Function<T,R>;
+          ============
+          
+          public R apply(T t);  
+             
+4) Supplier :-
+
+   java.util.function.Supplier<T>;
+          ============
+          
+          public abstract T get(); 
