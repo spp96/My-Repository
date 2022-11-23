@@ -1,0 +1,7 @@
+package snippet;
+
+public class Snippet {
+	System.out.println("Enter Product Name:");
+			String name = sc.next();
+}
+

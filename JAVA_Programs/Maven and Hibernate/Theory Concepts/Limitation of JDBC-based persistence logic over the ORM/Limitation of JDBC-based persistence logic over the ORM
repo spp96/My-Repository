@@ -1,0 +1,13 @@
+Answer:-
+
+--Jdbc can't store the Java objects into the table directly, because the SQL queries does not allows the Java objects as input,
+  here we need to convert object data into the simple(atomic) value to store them in a database.
+--Jdbc code is the database dependent code because it uses database s/w dependent queries. so the JDBC based
+  persistence logic is not 100% portable across various database s/w.  
+--Jdbc code having boiler plate code problem (writing the same code except the SQL queries in multiple classes of our
+  application again and again).
+--Jdbc code throws lots of checked exceptions, programmer need to handle them at compile time itself
+--Jdbc code throws lots of checked exceptions, programmer need to handle them at compile time itself
+--After the select operation, we get the ResultSet object.this RS obj we can not transfer from one layer to another layer and to get the data from the ResultSet.
+  we need to now the structure of the ResultSet.
+--there is no any caching and transaction management support is available in jdbc.

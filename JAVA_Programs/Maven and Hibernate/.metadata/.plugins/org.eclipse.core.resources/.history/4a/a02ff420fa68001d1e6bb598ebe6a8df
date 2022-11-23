@@ -1,0 +1,39 @@
+package com.masai.Question_1.Dao.Main_App;
+
+import java.util.Scanner;
+
+import com.masai.Question_1.Dao.Usecases.AddProducts;
+import com.masai.Question_1.Dao.Usecases.GetProductsById;
+
+public class Main {
+	public static void main(String[] args) {
+		
+	}
+
+	static void ProductsChoice() {
+		System.out.println("+---------------------------+" + "\n"
+						 						   + "| 1. Add Products               |" + "\n"
+						 						   + "| 2. Get Details of ProductById |" + "\n"
+						 						   + "| 3. Exit                   |" + "\n"
+						 						   + "+---------------------------+" );
+		
+		choice();
+	}
+	
+	static void choice() {
+		Scanner sc = new Scanner(System.in);
+		
+		int choice = 0;
+		
+		if(choice == 1) {
+			sc.nextInt();
+			System.out.println("Enter Deatils Of Products");
+			AddProducts.addpro();	
+		} else if(choice == 2) {
+			sc.nextInt();
+			System.out.println("Enter Products ID");
+			GetProductsById.getProduct();
+		}
+		
+}
+}

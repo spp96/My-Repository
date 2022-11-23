@@ -1,0 +1,12 @@
+Answer:-
+
+Hibernate is an Object/Relational Mapping solution for Java environments. Object-relational mapping or 
+ORM is the programming technique to map application domain model objects to the relational database 
+tables. Hibernate is a java based ORM tool that provides a framework for mapping application domain 
+objects to the relational database tables and vice versa.
+Hibernate provides a reference implementation of Java Persistence API, that makes it a great choice as an
+ORM tool with benefits of loose coupling. As we know that JPA is just a specification, meaning there 
+is no implementation. You can annotate your classes as much as you would like with JPA annotations,
+however, without an implementation, nothing will happen. Think of JPA as the guidelines that must be 
+followed or an interface, while Hibernate's JPA implementation is code that meets the API as defined by
+the JPA specification and provides the under the hood functionality.

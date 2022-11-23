@@ -1,0 +1,22 @@
+A build tool takes care of everything for building a process. It does following:
+
+--Generates source code (if auto-generated code is used)
+--Generates documentation from source code
+--Compiles source code
+--Packages compiled code into JAR of ZIP file
+--Installs the packaged code in local repository, server repository, or central repository
+Maven
+Maven is a tool that can now be used for building and managing any Java-based project. It makes the day-to-day
+work of Java developers easier and generally help with the comprehension of any Java-based project.
+
+Maven is a powerful project management tool that is based on POM (project object model). It is used for projects
+build, dependency and documentation.
+
+Maven does a lot of helpful task like
+
+We can easily build a project using maven.
+We can add jars and other dependencies of the project easily using the help of maven.
+Maven provides project information (log document, dependency list, unit test reports etc.)
+Maven is very helpful for a project while updating central repository of JARs and other dependencies.
+With the help of Maven we can build any number of projects into output types like the JAR, WAR etc without doing any scripting.
+Using maven we can easily integrate our project with source control system (such as Subversion or Git).

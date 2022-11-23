@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+E:\My-IMP-FOLDER\Sprint_Tool_Suit\SB_201\Daily_Assignments\Day_3_Assignments\.metadata\.plugins\org.eclipse.jdt.core
+774323581.index
+1865797976.index
+371999122.index

@@ -1,0 +1,10 @@
+package com.masai.Question_1.Dao;
+
+import Questino_5.Entities.Employee;
+import Questino_5.Exceptions.EmployeeException;
+
+public interface ProductDao {
+	public String registerEmployee(Employee employee)throws EmployeeException;
+	public Employee getEmployeeById(int empId)throws EmployeeException;
+}
+  

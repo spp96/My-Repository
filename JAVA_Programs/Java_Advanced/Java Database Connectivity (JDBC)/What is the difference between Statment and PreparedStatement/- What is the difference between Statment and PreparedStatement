@@ -1,0 +1,15 @@
+Answer:
+
+1) Statement:-This JDBC API interface is used for static SQL statements at run time.
+             -There is no specific protocol in Statement interface.
+             -The Statement interface does not allow accepting parameters at runtime.
+             -This interface is used when the SQL query is required to be executed only once.
+             -The performance of the Statement interface is comparatively not upto the mark.
+             -The Statement interface enforces SQL injection.
+
+2) PreparedStatement:-The PreparedStatement interface is used for dynamic SQL statements at run time.
+                     -The PreparedStatement used the non sql binary protocol
+                     -The PreparedStatement interface allow accepting parameters at runtime.
+                     -This interface is used when the SQL query is required to be executed multiple times.
+                     -The performance of the PreparedStatement interface is better than Statement.
+                     -The PreparedStatement does not enforce SQL injection.             

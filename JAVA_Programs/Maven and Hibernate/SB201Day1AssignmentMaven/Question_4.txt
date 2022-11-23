@@ -1,0 +1,5 @@
+There are 3 types of maven repository:
+
+-Local Repository
+-Central Repository
+-Remote Repository

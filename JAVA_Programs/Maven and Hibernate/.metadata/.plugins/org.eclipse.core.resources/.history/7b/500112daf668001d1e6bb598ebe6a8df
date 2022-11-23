@@ -1,0 +1,20 @@
+package com.masai.Question_1.Dao;
+
+import com.masai.Question_1.Dao.Entities.Product;
+
+public class ProductsImpl implements ProductDao {
+
+	@Override
+	public String AddProducts(Product pro) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Product getProductById(int proId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+}

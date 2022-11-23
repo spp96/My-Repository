@@ -1,0 +1,20 @@
+Answer:-
+
+JavaBean:
+--It is a special POJO which have some restrictions.
+--It provides complete control on members.
+--It should implement serializable interface.
+--Fields are accessed only by getters and setters.
+--Fields have only private visibility.
+--It must have a no-arg constructor.
+--It is used when you want to provide user your entity but only some part of your entity.
+
+POJO:
+--It doesn’t have special restrictions other than those forced by Java language.
+--It doesn’t provide much control on members.
+--It can implement Serializable interface.
+--Fields can be accessed by their names.
+--Fields can have any visibility.
+--There may/may-not be a no-arg constructor.
+--It is used when you don’t want to give restriction on your members and give user complete access of your entity
+

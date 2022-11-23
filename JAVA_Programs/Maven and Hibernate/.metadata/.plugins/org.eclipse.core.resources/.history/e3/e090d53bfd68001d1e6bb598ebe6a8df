@@ -1,0 +1,32 @@
+package com.masai.Question_3.Dao;
+
+
+public class EmployeeImpl implements EmployeeDao {
+
+	@Override
+	public void save(com.masai.Question_3.Entities.Employee emp) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getAddressOfEmployee(int empId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String giveBonusToEmployee(int empId, int bonus) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean deleteEmployee(int empId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+
+}

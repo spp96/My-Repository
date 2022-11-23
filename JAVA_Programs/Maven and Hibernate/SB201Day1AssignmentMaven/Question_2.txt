@@ -1,0 +1,10 @@
+POM:-
+
+POM stands for Project Object Model. It is fundamental unit of work in Maven. 
+It is an XML file that resides in the base directory of the project as pom. xml. 
+The POM contains information about the project and various configuration detail used by Maven to build the project(s).
+
+
+basic properties of the pom.xml file in Maven based
+application:-
+The pom.xml file contains information of project and configuration information for the maven to build the project such as dependencies, build directory, source directory, test source directory, plugin, goals etc.

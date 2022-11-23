@@ -1,0 +1,15 @@
+Answer:-
+
+ORM:
+Object Relational Mapping (ORM) is a functionality which is used to develop and
+maintain a relationship between an object and relational database by mapping an object state to database column. 
+It is capable to handle various database operations easily such as inserting, updating, deleting etc.
+
+Benefits of ORM Approach:
+
+--Hides details of SQL queries from OO logic.
+--Based on JDBC 'under the hood.'
+--No need to deal with the database implementation.
+--Entities based on business concepts rather than database structure.
+--Transaction management and automatic key generation.
+--Fast development of application.

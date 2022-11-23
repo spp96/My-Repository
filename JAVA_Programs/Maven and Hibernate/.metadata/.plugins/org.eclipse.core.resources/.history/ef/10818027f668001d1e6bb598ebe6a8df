@@ -1,0 +1,9 @@
+package com.masai.Question_1.Dao;
+
+import com.masai.Question_1.Dao.Entities.Product;
+
+public interface ProductDao {
+	public String registerEmployee(Product pro);
+	public Product getEmployeeById(int proId);
+}
+  
