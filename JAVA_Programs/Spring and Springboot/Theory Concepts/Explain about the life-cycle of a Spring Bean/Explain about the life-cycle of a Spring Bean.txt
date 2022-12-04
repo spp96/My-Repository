@@ -1,0 +1,29 @@
+
+ANS => For simple java classes constructor and finalize() methods is the  life cycle methods that
+       is called by JVM automatically.
+       In spring spring container controls the spring bean life-cycle.
+       there is initalization and destroy methods.
+       There are 5 stages of spring bean class in life cycle
+       1)not exist
+       2)Instansiate
+       3)intialized
+       4)service
+       5)Destroy
+
+
+       1)At first there s no spring bean object exist.if bean object is singleton scope bean will load by container
+       at a time of loading xml file.
+       else if it is prototype then load by conataiiner at a time of pulling object
+
+       2)After this Container load the bean class into the memory and creates the bean class object 
+       also uses some property and value tags to insert data in bean fields.Also all the dependencies
+       is also resolved at a time of instialisation.
+
+       3) In any bean class if there is init method is configured container will call that method
+
+       4)In Service phase Container provides bean object ref to client,and client and call the service mthod on that 
+        bean object.
+
+       5)Same as init method we have to configure destroy method and call that method by bean object 
+       to destroy bean object.
+

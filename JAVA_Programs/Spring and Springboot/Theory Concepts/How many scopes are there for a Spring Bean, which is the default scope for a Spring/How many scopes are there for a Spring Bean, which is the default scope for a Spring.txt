@@ -1,0 +1,35 @@
+
+ 
+ ANS  =>
+        here is total 4 types of scopes in Spring Framework
+
+        1) singletone scope
+        2) prototype scope
+        3) request scope
+        4) session scope
+
+         request  and session scope use in only webapp
+
+        1) In singletone scope we create two spring bean object of same id and compare that two
+        object it will return the true value that means it creates the same object if use the same bean id to make 
+        a object.this scope bydefault scope.
+
+        ApplicationContext ctx= new ClassPathXmlApplicationContext("applicationContext.xml");
+
+        A a1=ctx.getBean("a",A.class);
+
+        A a2=ctx.getBean("a",A.class);
+
+        return (a1==a2) //true
+
+       2) In prototype scope if we create  two spring bean object of same id and compare that two
+       object it will return the false value that means it creates the different object if use the same bean id to make 
+       a object
+
+       ApplicationContext ctx= new ClassPathXmlApplicationContext("applicationContext.xml");
+
+       A a1=ctx.getBean("a",A.class);
+
+       A a2=ctx.getBean("a",A.class);
+
+       return (a1==a2) //false

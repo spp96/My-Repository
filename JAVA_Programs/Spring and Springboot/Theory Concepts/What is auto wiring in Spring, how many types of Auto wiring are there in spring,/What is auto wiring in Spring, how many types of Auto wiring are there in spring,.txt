@@ -1,0 +1,23 @@
+
+  ANS => if spring container injecting all the dependencies implicitly into the dependent class
+         this is called "Autowire".
+
+         there are several values for Autowire tag
+         1)byName
+         2)ByType
+         3)Constructor
+         we rarely used constructor type
+
+         1)ByName:
+         If bean id value in xml file matches the property name of dependent bean then container perform the setter 
+         injection into the dependent class.
+         If there is no dependencies in that those property value remains null
+
+         2)ByType:
+         If bean class in xml file matches the property type  of dependent bean then container perform the setter 
+         injection into the dependent class.
+         If there is no dependencies in that those propert  type remains null
+
+         3)Constructor:
+         In this value of autowire it injects the dependencies using constructor injection not 
+         using setter injection mechanism.

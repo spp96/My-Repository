@@ -1,0 +1,16 @@
+
+  ANS => 
+       --In constructor injection circular dependency may occur but in setter injection 
+        there is no circular dependency.
+
+       --for compulsory dependencies we have to use constructor injection and for optional
+        dependencies setter injection.
+
+       --if there is "final" variable in we have to use constructor injection we can't do this with
+        setter injection. 
+
+       --constructor injected values accessed by setter injection but vice versa in not true.
+
+       --setter injection can overrides the constructor injected values but vice versa is not true.
+
+ 

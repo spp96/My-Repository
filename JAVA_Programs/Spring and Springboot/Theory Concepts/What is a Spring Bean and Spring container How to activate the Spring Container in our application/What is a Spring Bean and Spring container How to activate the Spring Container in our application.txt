@@ -1,0 +1,10 @@
+Answer:-
+
+Spring Bean:- It is a simple java class whoes associate with Spring container software is known as Sring bean.
+              and spring is POJO class.
+
+Spring Container:- In spring application, a one class is controlling all the spring beans.that class is known
+                   as spring container.we dont need to install this spring container. this is also very lightweight
+                   and activate in any java application.
+                   To activate this spring container we have to add spring jar file in our class path using maven
+                   and then we have to create one xml file and in that we have to create spring bean. 

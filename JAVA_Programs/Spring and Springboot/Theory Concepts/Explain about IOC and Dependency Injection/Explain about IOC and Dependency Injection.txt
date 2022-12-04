@@ -1,0 +1,10 @@
+Answer:-
+As we know to make two classes loosely coupled we need to apply dependency injection mechanism and POJO by POJO mechanism.
+Earlier we are doing this thing manually but if any external entity or framework do this work then we can say that control is inverted
+to that external framework and we called that framework as Inversion of Control(IOC).
+
+
+--Dependency Injection:-
+To create two class loosely coupled we need to apply dependency mechanism. there is two way to apply dependency injection,
+1) Using Setter Method,
+2) Using Constructor

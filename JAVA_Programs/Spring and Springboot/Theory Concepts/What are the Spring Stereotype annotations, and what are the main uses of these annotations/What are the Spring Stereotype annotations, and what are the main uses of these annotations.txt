@@ -1,0 +1,15 @@
+ ANS=> There is total 4 types of Stereotype Annotations:-
+            1)@component
+            2)@repository
+            3)@service
+            4)@Controller
+
+            1)component:- component is a parent of all ther Annotations.if we not able to decide in which
+                          layer this class will be stored than we can write component
+
+            2)Repository:- Repository means that class is belongs to data access layer 
+
+            3)Service:- Service means that class is belongs to business logic layer where we can write
+                        business loogic related method.
+
+            4)Controller:- Controller means we have to apply this annotation on presenation layer classes.
